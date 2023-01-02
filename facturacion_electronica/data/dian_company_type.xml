@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="company_type_1" model="dian.companytype">
+            <field name="code">1</field>
+            <field name="name">Persona Juridica</field>
+        </record>
+
+        <record id="company_type_2" model="dian.companytype">
+            <field name="code">2</field>
+            <field name="name">Persona Natural</field>
+        </record>
+    </data>
+</odoo>

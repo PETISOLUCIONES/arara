@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="document_type_11" model="dian.documenttype">
+            <field name="code">11</field>
+            <field name="name">Registro civil</field>
+        </record>
+
+        <record id="document_type_12" model="dian.documenttype">
+            <field name="code">12</field>
+            <field name="name">Tarjeta de identidad</field>
+        </record>
+
+        <record id="document_type_13" model="dian.documenttype">
+            <field name="code">13</field>
+            <field name="name">Cédula de ciudadanía</field>
+        </record>
+
+        <record id="document_type_21" model="dian.documenttype">
+            <field name="code">21</field>
+            <field name="name">Tarjeta de extranjería</field>
+        </record>
+
+        <record id="document_type_22" model="dian.documenttype">
+            <field name="code">22</field>
+            <field name="name">Cédula de extranjería</field>
+        </record>
+
+        <record id="document_type_31" model="dian.documenttype">
+            <field name="code">31</field>
+            <field name="name">NIT</field>
+        </record>
+
+        <record id="document_type_41" model="dian.documenttype">
+            <field name="code">41</field>
+            <field name="name">Pasaporte</field>
+        </record>
+
+        <record id="document_type_42" model="dian.documenttype">
+            <field name="code">42</field>
+            <field name="name">Documento de identificación extranjero</field>
+        </record>
+
+        <record id="document_type_50" model="dian.documenttype">
+            <field name="code">50</field>
+            <field name="name">NIT de otro país</field>
+        </record>
+
+        <record id="document_type_91" model="dian.documenttype">
+            <field name="code">91</field>
+            <field name="name">NUIP *</field>
+        </record>
+    </data>
+</odoo>

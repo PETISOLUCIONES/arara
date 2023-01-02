@@ -1,0 +1,60 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* partner_bank_in_payment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-18 21:32+0000\n"
+"PO-Revision-Date: 2020-10-18 21:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_bank_in_payment
+#: model:ir.model.fields,field_description:partner_bank_in_payment.field_account_payment__partner_bank_id
+msgid "Bank account"
+msgstr "Cuenta Bancaria"
+
+#. module: partner_bank_in_payment
+#: model:ir.model,name:partner_bank_in_payment.model_account_batch_payment
+msgid "Batch Payment"
+msgstr "Pagos por lotes"
+
+#. module: partner_bank_in_payment
+#: model:ir.model.fields,field_description:partner_bank_in_payment.field_account_payment__partner_bank
+msgid "Partner Bank"
+msgstr "Banco del tercero"
+
+#. module: partner_bank_in_payment
+#: model:ir.model,name:partner_bank_in_payment.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: partner_bank_in_payment
+#: code:addons/partner_bank_in_payment/models/account_payment.py:34
+#, python-format
+msgid "Payment Currency Warning"
+msgstr "Advertencia de Moneda del Pago"
+
+#. module: partner_bank_in_payment
+#: code:addons/partner_bank_in_payment/models/account_payment.py:35
+#, python-format
+msgid "The payment currency is different from the currency of any of the related invoices."
+msgstr "La moneda de pago es diferente a la moneda de cualquiera de las facturas relacionadas."
+
+#. module: partner_bank_in_payment
+#: code:addons/partner_bank_in_payment/models/account_payment.py:45
+#, python-format
+msgid "The associated journal must have the same currency as the payment."
+msgstr "El diario asociado debe tener la misma moneda que el pago."
+
+#. module: partner_bank_in_payment
+#: code:addons/partner_bank_in_payment/models/account_payment.py:65
+#, python-format
+msgid "The payment currency is different from the currency of any of the related invoices."
+msgstr "La moneda de pago es diferente a la moneda de cualquiera de las facturas relacionadas."

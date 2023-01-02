@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="0">
+    <record model="legal.reports.tax" id="legal_reports_ica">
+        <field name="name">CERTIFICADO DE RETENCION DE ICA</field>
+        <field name="tax_domain">[('type_tax_use','=','purchase'),('description','ilike','ICA%')]</field>
+    </record>
+    <record model="legal.reports.tax" id="legal_reports_iva">
+        <field name="name">CERTIFICADO DE RETENCION DE IVA</field>
+        <field name="tax_domain">[('type_tax_use','=','purchase'),('description','ilike','RIVA%')]</field>
+    </record>
+    <record model="legal.reports.tax" id="legal_reports_rf">
+        <field name="name">CERTIFICADO DE RETENCION EN LA FUENTE</field>
+        <field name="tax_domain">[('type_tax_use','=','purchase'),('description','ilike','RF%')]</field>
+    </record>
+  </data>
+</odoo>

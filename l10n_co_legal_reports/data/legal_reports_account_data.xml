@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="0">
+    <record model="legal.reports.account" id="Formato_1001">
+      <field name="name">1001</field>
+      <field name="description">Información de pagos o causaciones a terceros durante
+        el período y las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1003">
+      <field name="name">1003</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1004">
+      <field name="name">1004</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1005">
+      <field name="name">1005</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1006">
+      <field name="name">1006</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1007">
+      <field name="name">1007</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1008">
+      <field name="name">1008</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1009">
+      <field name="name">1009</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1010">
+      <field name="name">1010</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1012">
+      <field name="name">1012</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_1647">
+      <field name="name">1647</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+      las retenciones practicadas o asumidas sobre los mismos.
+    </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_2276">
+      <field name="name">2276</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_2278">
+      <field name="name">2278</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+    <record model="legal.reports.account" id="Formato_2280">
+      <field name="name">2280</field>
+      <field name="description">Información de pagos o causaciones a terceros durante el período y
+        las retenciones practicadas o asumidas sobre los mismos.
+      </field>
+    </record>
+
+    <record model="legal.reports.account" id="Formato_distritales_compras">
+      <field name="name">Distritales</field>
+      <field name="description">
+        Reporte de Medios distritales (Compras de Bienes y Servicios)
+      </field>
+    </record>
+
+    <!-- Formato Distritales Compras -->
+    <record model="legal.reports.account" id="Concepto_distritales_compras">
+      <field name="name">Compras</field>
+      <field name="description">Bienes y Servicios</field>
+      <field name="account_domain">5110% 5120% 5135% 5145% 5255% 5295% 6145% 6155%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_distritales_compras"/>
+      <field name="note">Reporte de Medios distritales (Compras de Bienes y Servicios)</field>
+    </record>    
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5001">
+      <field name="name">5001</field>
+      <field name="description">Salarios, prestaciones sociales y demás pagos laborales.</field>
+      <field name="account_domain">510503 520503 510506 520506 510512 520512 510515 520515 510518 520518 510524 520524 510527 520527 510530 520530 510533 520533 510536 520536 510539 520539 510542 520542 510545 520545 510548 52054 510560 236505</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período,
+        deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia
+        o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta
+        (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o
+        abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de
+        las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre,
+        y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5002">
+      <field name="name">5002</field>
+      <field name="description">Honorarios.</field>
+      <field name="account_domain">5110% 5210% 236515%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período,
+        deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia
+        o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta
+        (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o
+        abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de
+        las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre,
+        y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5003">
+      <field name="name">5003</field>
+      <field name="description">Comisiones.</field>
+      <field name="account_domain">519505 529505 236520</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5004">
+      <field name="name">5004</field>
+      <field name="description">Servicios.</field>
+      <field name="account_domain">5135% 5235% 5145% 5245% 5150% 5250% 236525%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5005">
+      <field name="name">5005</field>
+      <field name="description">Arrendamientos.</field>
+      <field name="account_domain">5120% 5220% 236530%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5006">
+      <field name="name">5006</field>
+      <field name="description">Intereses y rendimientos financieros.</field>
+      <field name="account_domain">530520 530525 236535</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE.
+      En cuanto a los pagos o abonos en cuenta correspondientes a costos y gastos no deducibles en renta, se deben reportar en la casilla del formato denominada "Pago o abono en cuenta no deducible".
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5007">
+      <field name="name">5007</field>
+      <field name="description">Compra de activos movibles.</field>
+      <field name="account_domain">1405% 1410% 1415% 1417% 1420% 1425% 1428% 1430% 1435% 1440% 1445% 1450% 1455% 1460% 1465%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Se debe reportar el valor pagado o abonado en cuenta por la empresa por los conceptos antes mencionados.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5008">
+      <field name="name">5008</field>
+      <field name="description">Compra de activos fijos.</field>
+      <field name="account_domain">1504% 1506% 1508% 1512% 1516% 1520% 1524% 1528% 1532% 1536% 1540% 1544% 1548% 1552% 1556% 1560% 1562% 1564% 1568% 1572% 1576% 1580% 1584% 1588%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Se debe reportar a cada uno de los terceros a quienes se les realizaron las compras de activos fijos; se debe suministrar nombre o razón social, NIT, dirección, país  de residencia, el valor del pago o abono en cuenta deducible y el no deducible, el IVA que se llevó como mayor valor del costo, entre otros.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5010">
+      <field name="name">5010</field>
+      <field name="description">Los pagos por concepto de aportes parafiscales al SENA, cajas de compensación familiar e ICBF.</field>
+      <field name="account_domain">510572 520572 510575 520575 510578 520578</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5011">
+      <field name="name">5011</field>
+      <field name="description"> Pagos realizando en el período por concepto de aportes parafiscales a las EPS y ARL, incluidos los aportes del trabajador.</field>
+      <field name="account_domain">510568 520568 510569 520569</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5012">
+      <field name="name">5012</field>
+      <field name="description">Pagos realizados en el período por concepto de aportes obligatorios para pensiones efectuados al ISS y a los Fondos de Pensiones, incluidos los aportes del trabajador.</field>
+      <field name="account_domain">510570 520570</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5013">
+      <field name="name">5013</field>
+      <field name="description">Las donaciones en dinero efectuadas durante el año gravable período, a las entidades señaladas en los artículos 125, 125-4, 126-2 y 158-1 del Estatuto Tributario y la establecida en el artículo 16 de la Ley 814 de 2003, y demás que determine la ley.</field>
+      <field name="account_domain">539525</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5014">
+      <field name="name">5014</field>
+      <field name="description">Las donaciones en activos diferentes a dinero efectuadas durante el año gravable período a las entidades señaladas en los artículos 125, 125-4, 126-2 y 158-1 del Estatuto Tributario y la establecida en el artículo 16 de la Ley 814 de 2003, y demás que determine la ley.</field>
+      <field name="account_domain">539525</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5015">
+      <field name="name">5015</field>
+      <field name="description">Impuestos efectivamente pagados durante el período solicitados como deducción.</field>
+      <field name="account_domain">511505 521505 511506 521506 511510 521510 511565 521565 511595 521595</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5016">
+      <field name="name">5016</field>
+      <field name="description">Otros conceptos y deducciones.</field>
+      <field name="account_domain">5104% 5240% 170545 171004 510563 520563 510566 520566 510581 520581 510584 520584 510595 520595 520595 519525 529525 519530 529530 519540 529540 236570</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5023">
+      <field name="name">5023</field>
+      <field name="description">Pagos o abonos en cuenta al exterior por asistencia técnica.</field>
+      <field name="account_domain">511035 521035 513515 523515</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5024">
+      <field name="name">5024</field>
+      <field name="description">Pagos o abonos en cuenta al exterior por marcas.</field>
+      <field name="account_domain">1610%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5025">
+      <field name="name">5025</field>
+      <field name="description">Pagos o abonos en cuenta al exterior por patentes.</field>
+      <field name="account_domain">1615%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5028">
+      <field name="name">5028</field>
+      <field name="description">Devolución de pagos o abonos en cuenta y retenciones correspondientes a operaciones de años anteriores.</field>
+      <field name="account_domain">2365% 2367%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5029">
+      <field name="name">5029</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por anticipado por compras.</field>
+      <field name="account_domain">170595%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5030">
+      <field name="name">5030</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por anticipado por honorarios.</field>
+      <field name="account_domain">170510%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5031">
+      <field name="name">5031</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por anticipado por comisiones.</field>
+      <field name="account_domain">170515%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5032">
+      <field name="name">5032</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por servicios.</field>
+      <field name="account_domain">170535 170540 171036 171040 171044</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5033">
+      <field name="name">5033</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por anticipado por arrendamientos.</field>
+      <field name="account_domain">170525</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5034">
+      <field name="name">5034</field>
+      <field name="description">Cargos diferidos y/o gastos pagados por anticipado por intereses y rendimientos financieros.</field>
+      <field name="account_domain">170505</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5035">
+      <field name="name">5035</field>
+      <field name="description">Otros cargos diferidos y/o gastos pagados.</field>
+      <field name="account_domain">170520 170530 171016 171020 171024 171028 171032 171048 171060</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5043">
+      <field name="name">5043</field>
+      <field name="description">Participaciones o dividendos pagados o abonados en cuenta en calidad de exigibles.</field>
+      <field name="account_domain">2360% 236510</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5044">
+      <field name="name">5044</field>
+      <field name="description">Pago por loterías, rifas, apuestas y similares.</field>
+      <field name="account_domain">613570 236545</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5049">
+      <field name="name">5049</field>
+      <field name="description">Autorretenciones por ventas.</field>
+      <field name="account_domain">236675%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5050">
+      <field name="name">5050</field>
+      <field name="description">Autorretenciones por servicios.</field>
+      <field name="account_domain">236575%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5051">
+      <field name="name">5051</field>
+      <field name="description">Autorretenciones por rendimientos financieros.</field>
+      <field name="account_domain">236575%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5052">
+      <field name="name">5052</field>
+      <field name="description">Otras autorretenciones.</field>
+      <field name="account_domain">236575%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5053">
+      <field name="name">5053</field>
+      <field name="description">Retenciones a título de timbre.</field>
+      <field name="account_domain">236565%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5055">
+      <field name="name">5055</field>
+      <field name="description">Viáticos.</field>
+      <field name="account_domain">510521 520521</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5058">
+      <field name="name">5058</field>
+      <field name="description">El valor de los aportes, tasas y contribuciones efectivamente pagados durante el año gravable período, solicitados como deducción.</field>
+      <field name="account_domain">512505 522505 521535</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1001 -->
+    <record model="legal.reports.account" id="Concepto_5062">
+      <field name="name">5062</field>
+      <field name="description">Autorretenciones por CREE.</field>
+      <field name="account_domain">236575%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1001"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1003 -->
+    <record model="legal.reports.account" id="Concepto_1301">
+      <field name="name">1301</field>
+      <field name="description">Retenciones por salarios, prestaciones y demás pagos laborales.</field>
+      <field name="account_domain">135515%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1003"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Estos parecieran que son iguales, no se programan inicialmente
+    1301 - Retenciones por salarios, prestaciones y demás pagos laborales.	13551540
+    1302 - Retención por ventas.	13551505
+    1303 - Retención por servicios.	13551510
+    1304 - Retención por honorarios.	13551515
+    1305 - Retención por comisiones. 	13551520
+    1306 - Retención por intereses y rendimientos financieros.	13551525
+    1307 - Retención por arrendamientos. 	13551530
+    1308 - Retención por otros conceptos. 	13551535
+    -->
+
+    <!-- Formato 1003 -->
+    <record model="legal.reports.account" id="Concepto_1309">
+      <field name="name">1309</field>
+      <field name="description">Retenciones en la fuente en el impuesto sobre las ventas.</field>
+      <field name="account_domain">135517%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1003"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!--
+    1310 - Retención por dividendos y participaciones. 	13551545
+    1311 - Retención por enajenación de activos fijos de personas naturales ante oficinas de tránsito y otras entidades autorizadas.	13551550
+    1312 - Retención por ingresos de tarjetas débito y crédito.	13551555
+    1313 - Retención por loterías, rifas, apuestas y similares. 	13551560
+    -->
+
+
+    <!-- Formato 1003 -->
+    <record model="legal.reports.account" id="Concepto_1314">
+      <field name="name">1314</field>
+      <field name="description">Retención por impuesto de timbre.</field>
+      <field name="account_domain">135518%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1003"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1007 -->
+    <record model="legal.reports.account" id="Concepto_4001">
+      <field name="name">4001</field>
+      <field name="description">Ingresos brutos operacionales.</field>
+      <field name="account_domain">4105% 4110% 4115% 4120% 4125% 4130% 4135% 4140% 4145% 4150% 4155% 4160% 4165% 4170% 4175%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1007"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1007 -->
+    <record model="legal.reports.account" id="Concepto_4002">
+      <field name="name">4002</field>
+      <field name="description">Ingresos no operacionales.</field>
+      <field name="account_domain">4205% 4215% 4220% 4225% 4230% 4235% 4240% 4245% 4248% 4250% 4255% 4260% 4275%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1007"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1007 -->
+    <record model="legal.reports.account" id="Concepto_4003">
+      <field name="name">4003</field>
+      <field name="description">Ingresos por intereses y rendimientos financieros.</field>
+      <field name="account_domain">4210%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1007"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1008 -->
+    <record model="legal.reports.account" id="Concepto_1315">
+      <field name="name">1315</field>
+      <field name="description">Cuentas por cobrar a clientes.</field>
+      <field name="account_domain">1305%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1008"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1008 -->
+    <record model="legal.reports.account" id="Concepto_1316">
+      <field name="name">1316</field>
+      <field name="description">Cuentas por cobrar a accionistas, socios, comuneros, cooperados y compañías vinculadas.</field>
+      <field name="account_domain">1310% 1315% 1320% 1325%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1008"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1008 -->
+    <record model="legal.reports.account" id="Concepto_1317">
+      <field name="name">1317</field>
+      <field name="description">Otras cuentas por cobrar.</field>
+      <field name="account_domain">1323% 1328% 1330% 1335% 1340% 1345% 1350% 1355% 135505 135510 135515 135518 135520''1360% 1365% 1370% 1380% 1385% 1390%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1008"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1008 -->
+    <record model="legal.reports.account" id="Concepto_1318">
+      <field name="name">1318</field>
+      <field name="description">Provisión de la cartera.</field>
+      <field name="account_domain">1399% 139905%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1008"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2201">
+      <field name="name">2201</field>
+      <field name="description">Saldos de los pasivos con proveedores.</field>
+      <field name="account_domain">2205% 2210% 2215% 2220% 2225%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2202">
+      <field name="name">2202</field>
+      <field name="description">Saldo de los pasivos con compañías vinculadas accionistas y socios.</field>
+      <field name="account_domain">2310% 2315% 2355% 236005% 236010%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2203">
+      <field name="name">2203</field>
+      <field name="description">Saldo de las obligaciones financieras.</field>
+      <field name="account_domain">210505% 2110% 2115% 2120% 2125% 2130% 2135% 2140% 2145% 2195%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2204">
+      <field name="name">2204</field>
+      <field name="description">Saldo de los pasivos por impuestos, gravámenes y tasas.</field>
+      <field name="account_domain">2404% 2408% 2412% 2424% 2436% 2495%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2205">
+      <field name="name">2205</field>
+      <field name="description">Saldo de los pasivos laborales.</field>
+      <field name="account_domain">2505% 2510% 2515% 2520% 2525% 2530% 2532% 2535% 2540%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1009 -->
+    <record model="legal.reports.account" id="Concepto_2206">
+      <field name="name">2206</field>
+      <field name="description">Saldo de los demás pasivos.</field>
+      <field name="account_domain">2320% 2330% 2335% 2340% 2345% 2350% 2357% 236505 236510 236515 236520 236525 236530 236535 236540 236545 236550 236555 236560 236565 236570 236701 236702 236703''2368% 2370% 2375% 2380% 2705% 2710% 2715% 2805% 2810% 2825% 2830% 2840% 2905% 2920% 2925%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1009"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012
+    Revisar: 1110 - Saldos en cuentas corrientes y/o ahorro poseídas en el país.	111005 111505 1120 1125
+    -->
+    <record model="legal.reports.account" id="Concepto_1110">
+      <field name="name">1110</field>
+      <field name="description">Saldos en cuentas corrientes y/o ahorro poseídas en el país.</field>
+      <field name="account_domain">1110% 1115% 1120% 1125%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1115">
+      <field name="name">1115</field>
+      <field name="description">Saldos en cuentas corrientes y/o ahorros poseídas en el exterior.	</field>
+      <field name="account_domain">111010% 111510%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1200">
+      <field name="name">1200</field>
+      <field name="description">Valor patrimonial de los bonos.</field>
+      <field name="account_domain">1215%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1201">
+      <field name="name">1201</field>
+      <field name="description">Valor patrimonial de los certificados de depósito.</field>
+      <field name="account_domain">1215%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1202">
+      <field name="name">1202</field>
+      <field name="description">Valor patrimonial de los títulos.</field>
+      <field name="account_domain">1235%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1203">
+      <field name="name">1203</field>
+      <field name="description">Valor patrimonial de los derechos fiduciarios.</field>
+      <field name="account_domain">1245%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1204">
+      <field name="name">1204</field>
+      <field name="description">Valor patrimonial de las demás inversiones poseídas.</field>
+      <field name="account_domain">1220% 1230% 1240% 1250% 1255% 1260% 1295%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1012 -->
+    <record model="legal.reports.account" id="Concepto_1205">
+      <field name="name">1205</field>
+      <field name="description">Valor patrimonial de las acciones o aportes.</field>
+      <field name="account_domain">1205% 1210%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1012"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+    <!-- Formato 1647 -->
+    <record model="legal.reports.account" id="Concepto_4070">
+      <field name="name">4070</field>
+      <field name="description">Valores recibidos para terceros.</field>
+      <field name="account_domain">281505%</field>
+      <field name="parent_id" ref="l10n_co_legal_reports.Formato_1647"/>
+      <field name="note">Los obligados a presentar información exógena por el año gravable período, deben suministrar los apellidos y nombres o razón social, identificación, dirección y país de residencia o domicilio de cada una de las personas o entidades beneficiarias de los pagos o abonos en cuenta (causación) que constituyan costo o deducción o den derecho a impuesto descontable, y los pagos o abonos en cuenta (causación) no solicitados fiscalmente como costo o deducción, indicando el valor de las retenciones y autorretenciones en la fuente practicadas o asumidas a título de renta, IVA y timbre, y las autorretenciones del CREE. El valor mínimo a reportar por cada beneficiario de un pago o abono en cuenta es de cien mil pesos.
+      </field>
+    </record>
+
+  </data>
+</odoo>

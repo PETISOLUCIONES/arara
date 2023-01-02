@@ -1,0 +1,3 @@
+13.0.0.1
+
+-> Add condition that only invoices with state posted and payment state not_paid,in_payment register partial for payment.

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_legal_report_account_form" model="ir.ui.view">
+    <field name="name">legal.reports.account.form</field>
+    <field name="model">legal.reports.account</field>
+    <field name="arch" type="xml">
+      <form string="Informes de Terceros">
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+              <button type="object" name="action_add_chils" class="oe_stat_button" icon="fa-thumb-tack" attrs="{'invisible': [('formats', '=', 'concept')]}" groups="base.group_user">
+                  <field name="child_count" widget="statinfo" string="Conceptos"/>
+              </button>
+              <button name="toggle_active" type="object"
+                      class="oe_stat_button" icon="fa-archive">
+                  <field name="active" widget="boolean_button"
+                      options='{"terminology": "archive"}'/>
+              </button>
+          </div>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="report_base"/>
+            </group>
+            <group>
+              <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+              <field name="description"/>
+              <field name="formats" readonly="1" force_save="1"/>
+              <field name="parent_id" readonly="1" force_save="1"/>
+              <field name="id" invisible="1"/>
+            </group>
+          </group>
+          <notebook>
+            <page string="Nombres de Columnas" attrs="{'invisible': [('formats','!=','format')]}">
+              <group>
+                <field name="rows_ids" nolabel="1">
+                  <tree editable="bottom">
+                    <field name="name"/>                    
+                  </tree>
+                </field>
+              </group>
+            </page>
+            <page string="Conceptos a Reportar" attrs="{'invisible': [('formats','=','format')]}">
+              <group>
+                <field name="lines_ids" nolabel="1"
+                       context="{'default_lra_id': active_id}"> 
+                  <tree editable="bottom">
+                    <field name="lra_id" invisible="1"/>
+                    <field name="child_id" invisible="1"/>
+                    <field name="name" domain="[('lra_id', '=', child_id)]"/>
+                    <field name="balance"/>
+                    <field name="operation"/>
+                    <field name="account_ids" widget="many2many_tags"/>                    
+                  </tree>
+                </field>
+              </group>
+            </page>
+          </notebook>
+          <hr/>
+          <label for="note" string="Información adicional"/>
+          <field name="note"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_legal_report_account_tree" model="ir.ui.view">
+    <field name="name">legal.reports.account.tree</field>
+    <field name="model">legal.reports.account</field>
+    <field name="arch" type="xml">
+      <tree string="Informes de Terceros">
+        <field name="parent_id"/>
+        <field name="name"/>
+        <field name="description"/>
+        <!--
+        <field name="initial_balance"/>
+        <field name="account_domain"/>
+      -->
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_legal_report_account_form_view" model="ir.actions.act_window">
+    <field name="name">Formatos</field>
+    <field name="res_model">legal.reports.account</field>
+    <field name="view_mode">tree,form</field>
+    <field name="context">{'default_formats': 'format',}</field>
+    <field name="domain">[('formats','=','format')]</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        <!-- Add Text Here -->
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+
+  <menuitem id="menu_legal_report_account_config"
+    name="Formatos"
+    action="action_legal_report_account_form_view"
+    parent="menu_legal_reports_config_root"
+    sequence="90"/>
+
+</odoo>

@@ -1,0 +1,33 @@
+{
+    'name': 'Colombian - Accounting Legal Reports',
+    'version': '1.1',
+    'description': """
+Accounting legal reports for Colombia
+================================
+    """,
+    'author': ['Carlos Fonseca, (www.2la.co)'],
+    'category': 'Accounting',
+    'depends': [
+        'account',
+        'web',
+        'report_xlsx',
+        'l10n_co_bases',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/legal_reports_tax_data.xml',
+        'data/legal_reports_account_data.xml',
+        'data/legal_reports_partner_data.xml',
+        'report/legal_reports_tax_report_templates.xml',
+        'wizard/legal_reports_tax_wizard_view.xml',
+        'wizard/legal_reports_partner_wizard_view.xml',
+        'views/legal_reports_menu.xml',
+        'views/legal_reports_tax_view.xml',
+        'views/legal_reports_account_view.xml',
+        'views/legal_reports_partner_columns_view.xml',
+    ],
+    'demo': [],
+    'auto_install': True,
+    'installable': True,
+    'licenses': 'OEEL-1 (120.00 USD)',
+}

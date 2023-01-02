@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+from odoo import api, fields, models, exceptions
+from odoo.tools.translate import _
+
+
+class LegalReportsPartnerColumns(models.Model):
+    _name = 'legal.reports.partner.columns'
+    _description = 'Columnas'
+    _order = "report_partner_id,sequence"
+
+    name = fields.Char(
+        string="Nombre",)
+    sequence = fields.Integer(
+        string="Secuencia",)
+    column = fields.Char(
+        string="Columna(s)",
+        required=True,)
+    report_partner_id = fields.Many2one(
+        string="Columnas de terceros",
+        comodel_name="legal.reports.partner",)
+
+    @api.multi
+    def getfield(self, model):
+        self.ensure_one()
+        value = model
+        for part in self.column.split('.'):
+            value = getattr(value, part)
+        return value
+
+class LegalReportsPartner(models.Model):
+    _name = 'legal.reports.partner'
+    _description = 'Columnas de Terceros'
+
+    name = fields.Char(
+        string="Nombre",)
+    active = fields.Boolean(
+        string="Activo",
+        default=True)
+    columns_ids = fields.One2many(
+        string="Columnas",
+        comodel_name="legal.reports.partner.columns",
+        inverse_name="report_partner_id",)

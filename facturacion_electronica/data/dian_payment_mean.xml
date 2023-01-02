@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+         <record id="payment_mean_1" model="dian.paymentmean">
+            <field name="code">1</field>
+            <field name="name">Contado</field>
+        </record>
+
+         <record id="payment_mean_2" model="dian.paymentmean">
+            <field name="code">2</field>
+            <field name="name">Crédito</field>
+        </record>
+    </data>
+</odoo>

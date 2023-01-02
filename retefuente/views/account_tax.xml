@@ -1,0 +1,12 @@
+<odoo>
+    <record id="view_base_account_tax_form" model="ir.ui.view">
+            <field name="name">view.base.account.tax.form</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/group/group[2]/div" position="after">
+                    <field name="base" attrs="{'invisible': [('type_tax','!=',6)]}"/>
+                </xpath>
+            </field>
+    </record>
+</odoo>

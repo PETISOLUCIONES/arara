@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="debit_note_concept_1" model="dian.debitnoteconcept">
+            <field name="code">1</field>
+            <field name="name">Intereses</field>
+        </record>
+
+        <record id="debit_note_concept_2" model="dian.debitnoteconcept">
+            <field name="code">2</field>
+            <field name="name">Gastos por cobrar</field>
+        </record>
+
+        <record id="debit_note_concept_3" model="dian.debitnoteconcept">
+            <field name="code">3</field>
+            <field name="name">Cambio del valor</field>
+        </record>
+
+        <record id="debit_note_concept_4" model="dian.debitnoteconcept">
+            <field name="code">4</field>
+            <field name="name">Otros</field>
+        </record>
+    </data>
+</odoo>

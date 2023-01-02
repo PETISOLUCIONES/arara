@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="partner_rues" model="ir.actions.server">
+            <field name="name">Obtener NIT/Nombre RUES</field>
+           <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="base.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="code">action = model.obtener_nit_razon()</field>
+        </record>
+
+    </data>
+</odoo>

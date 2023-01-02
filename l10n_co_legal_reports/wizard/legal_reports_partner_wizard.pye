@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+
+from odoo import api, fields, models
+
+
+class RetentionReporParnertWizard(models.TransientModel):
+    _name = 'legal.reports.partner.wizard'
+    _description = 'Informes Legales de Terceros Wizard'
+
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        default=lambda self: self.env.user.company_id,
+        string='Compañia',
+        required=True,
+    )
+    date_range_id = fields.Many2one(
+        comodel_name='date.range',
+        string='Rango de Fecha',
+    )
+    date_from = fields.Date(
+        string="Desde",
+        required=True
+    )
+    date_to = fields.Date(
+        string="Hasta",
+        required=True,
+    )
+    partner_column_id = fields.Many2one(
+        string="Columna(s)",
+        comodel_name="legal.reports.partner",
+        help="Columnas a desplegar en los terceros",
+        required=True,
+    )
+    legal_reports_account_id = fields.Many2one(
+        string="Formato",
+        comodel_name="legal.reports.account",
+        domain="[('child_ids','!=', False)]",
+        help="Formato a desccargar",
+        required=True,
+    )
+
+    @api.onchange("date_range_id", )
+    def _onchange_date_range_id(self):
+        if self.date_range_id:
+            self.date_from = self.date_range_id.date_start
+            self.date_to = self.date_range_id.date_end
+
+    @api.multi
+    def export_xlsx(self):
+        context = self._context
+        datas = {'ids': context.get('active_ids', [])}
+        datas['model'] = 'legal.reports.partner.wizard'
+        datas['form'] = self.read()[0]
+        #for field in datas['form'].keys():
+        #    if isinstance(datas['form'][field], tuple):
+        #        datas['form'][field] = datas['form'][field][0]
+
+        report = self.env['ir.actions.report'].sudo()._get_report_from_name('l10n_co_legal_reports.partner_report_xls.xlsx')
+        report.report_file = "Formato %s - %s" % (self.legal_reports_account_id.name, self.company_id.name)
+
+
+        if context.get('xls_export'):
+            return self.env.ref('l10n_co_legal_reports.partner_account_xlsx').report_action(self, data=datas)

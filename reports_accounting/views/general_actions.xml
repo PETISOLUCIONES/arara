@@ -1,0 +1,378 @@
+<!-- //////////////////////////////// Parameterization VIEWS //////////////////////////////// -->
+<odoo>
+  <data>
+        <!-- BRANCH / SUCURSALES VIEWS -->
+        <record id="zue_menu_action_branch" model="ir.actions.act_window">
+            <field name="name">Sucursales</field>
+            <field name="res_model">zue.res.branch</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear Sucursal
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_branch">
+            <field name="name">zue list branch</field>
+            <field name="model">zue.res.branch</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.form_branch">
+            <field name="name">zue form branch</field>
+            <field name="model">zue.res.branch</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet string="Sucursal">
+                        <group>
+                            <field name="code"/>
+                            <newline/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- FECHAS CONMEMORATIVAS VIEWS -->
+        <record id="zue_menu_action_dates_commemorated" model="ir.actions.act_window">
+            <field name="name">Fechas conmemorativas</field>
+            <field name="res_model">zue.dates.commemorated</field>
+            <field name="view_mode">calendar,tree</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear fecha conmemorativa
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_commemorated">
+            <field name="name">zue list commemorated</field>
+            <field name="model">zue.dates.commemorated</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.calendar_commemorated">
+            <field name="name">zue calendar commemorated</field>
+            <field name="model">zue.dates.commemorated</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date" date_stop="date" string="Fecha conmemorativa" mode="month"></calendar>
+            </field>
+        </record>
+
+        <!-- DIAS FESTIVOS VIEWS -->
+        <record id="zue_menu_action_holidays" model="ir.actions.act_window">
+            <field name="name">Días Festivos</field>
+            <field name="res_model">zue.holidays</field>
+            <field name="view_mode">calendar,tree</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear día festivo
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_holidays">
+            <field name="name">zue list holidays</field>
+            <field name="model">zue.holidays</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.calendar_holidays">
+            <field name="name">zue calendar holidays</field>
+            <field name="model">zue.holidays</field>
+            <field name="arch" type="xml">
+                <calendar date_start="date" date_stop="date" string="Días Festivos" mode="month"></calendar>
+            </field>
+        </record>
+
+        <!-- CITY VIEWS -->
+        <record id="zue_menu_action_city" model="ir.actions.act_window">
+            <field name="name">Ciudad</field>
+            <field name="res_model">zue.city</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear ciudad
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_city">
+            <field name="name">zue list city</field>
+            <field name="model">zue.city</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="state_id"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- SECTORS VIEWS -->
+        <record id="zue_menu_action_sectors" model="ir.actions.act_window">
+            <field name="name">Sectores</field>
+            <field name="res_model">zue.sectors</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear sector
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_sectors">
+        <field name="name">zue list sector</field>
+        <field name="model">zue.sectors</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- vinculation_types VIEWS -->
+        <record id="zue_menu_action_vinculation_types" model="ir.actions.act_window">
+            <field name="name">Tipos de vinculación</field>
+            <field name="res_model">zue.vinculation_types</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear tipos de vinculación
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_vinculation_types">
+        <field name="name">zue list vinculation_types</field>
+        <field name="model">zue.vinculation_types</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            <field name="active"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- responsibilities_rut VIEWS -->
+        <record id="zue_menu_action_responsibilities_rut" model="ir.actions.act_window">
+            <field name="name">Responsabilidades RUT</field>
+            <field name="res_model">zue.responsibilities_rut</field>
+            <field name="view_mode">tree</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear responsabilidad RUT
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_responsibilities_rut">
+        <field name="name">zue list responsibilities_rut</field>
+        <field name="model">zue.responsibilities_rut</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="code"/>
+                <field name="description"/>
+                <field name="valid_for_fe"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- contact_types VIEWS -->
+        <record id="zue_menu_action_contact_types" model="ir.actions.act_window">
+            <field name="name">Tipos de contacto</field>
+            <field name="res_model">zue.contact_types</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear tipo de contacto
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_contact_types">
+        <field name="name">zue list contact_types</field>
+        <field name="model">zue.contact_types</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- job_title VIEWS -->
+        <record id="zue_menu_action_job_title" model="ir.actions.act_window">
+            <field name="name">Cargos</field>
+            <field name="res_model">zue.job_title</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear cargo
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_job_title">
+        <field name="name">zue list job_title</field>
+        <field name="model">zue.job_title</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- areas VIEWS -->
+        <record id="zue_menu_action_areas" model="ir.actions.act_window">
+            <field name="name">Áreas</field>
+            <field name="res_model">zue.areas</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear área
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_areas">
+        <field name="name">zue list areas</field>
+        <field name="model">zue.areas</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- Grupos de Trabajo VIEWS -->
+        <record id="zue_menu_action_work_groups" model="ir.actions.act_window">
+            <field name="name">Grupos de trabajo</field>
+            <field name="res_model">zue.work_groups</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear Grupo de trabajo
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_work_groups">
+        <field name="name">zue list work groups</field>
+        <field name="model">zue.work_groups</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- Grupos Presupuestales VIEWS -->
+        <record id="zue_menu_action_budget_group" model="ir.actions.act_window">
+            <field name="name">Grupos presupuestales</field>
+            <field name="res_model">zue.budget_group</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear Grupo presupuestal
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_budget_group">
+        <field name="name">zue list budget group</field>
+        <field name="model">zue.budget_group</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="code"/>
+            <field name="name"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- Rango de activos VIEWS -->
+        <record id="zue_menu_action_asset_range" model="ir.actions.act_window">
+            <field name="name">Rango de activos</field>
+            <field name="res_model">zue.asset_range</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Crear rango de activos
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="reports_accounting.list_asset_range">
+        <field name="name">zue list asset range</field>
+        <field name="model">zue.asset_range</field>
+        <field name="arch" type="xml">
+            <tree>
+            <field name="id"/>
+            <field name="name"/>
+            <field name="initial_value"/>
+            <field name="final_value"/>
+            <field name="active"/>
+            </tree>
+        </field>
+        </record>
+
+        <!-- CIIU VIEWS -->
+        <record model="ir.actions.act_window" id="action_hierarchy_ciiu">
+            <field name="name">CIIU</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">zue.ciiu</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="view_form_CIIU" model="ir.ui.view">
+            <field name="name">CIIU Form</field>
+            <field name="model">zue.ciiu</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="parent_id"/>
+                        <field name="code"/>
+                        <field name="name"/>
+                        <field name="porcent_ica"/>
+                        <field name="child_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tree_ciiu" model="ir.ui.view">
+            <field name="name">CIIU Tree</field>
+            <field name="model">zue.ciiu</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="parent_path"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Impuestos y Retenciones -->
+    <record id="legal_reports_tax_wizard" model="ir.ui.view">
+        <field name="name">Impuestos y Retenciones</field>
+        <field name="model">legal.reports.tax.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main_info">
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                </group>
+                <group name="Filtros">
+                    <group name="date_range">
+                        <field name="date_range_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group name="Otros Filtros">
+                        <field name="legal_reports_tax_id" options="{'no_create': True}"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Filtros de Terceros">
+                        <field name="partner_ids" nolabel="1"
+                               options="{'no_create': True}"/>
+                    </page>
+                </notebook>
+                <footer>
+                    <!--
+                    <button name="button_export_html" string="View"
+                        type="object" default_focus="1" class="oe_highlight"/>
+                    or
+                    <button name="button_export_pdf" string="Export PDF" type="object"/>
+                    or
+                    <button name="button_export_xlsx" string="Export XLSX" type="object"/>
+                    or
+                  -->
+                    <button name="generate_report" string="Generar Certificado" type="object"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_legal_report_tax_wizard"
+                name="Informes Legales de Impuestos y Retenciones"
+                res_model="legal.reports.tax.wizard"
+                view_type="form"
+                view_mode="form"
+                view_id="legal_reports_tax_wizard"
+                target="new" />
+
+</odoo>

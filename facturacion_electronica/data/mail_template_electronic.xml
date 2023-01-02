@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+    <data>
+        <!--Email template -->
+        <record id="email_template_electronic_invoice" model="mail.template">
+            <field name="name">Factura electronica: Enviar por email</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="email_from">{{ (object.invoice_user_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="subject">{{ object.company_id.name }} Invoice (Ref {{ object.name or 'n/a' }})</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Estimado/a
+                        <t t-if="object.partner_id.parent_id">
+                            <t t-out="object.partner_id.name or ''">Brandon Freeman</t>
+                            (<t t-out="object.partner_id.parent_id.name or ''">Azure Interior</t>),
+                        </t>
+                        <t t-else="">
+                            <t t-out="object.partner_id.name or ''">Brandon Freeman</t>,
+                        </t>
+                        <br/>
+                        <br/>
+                        Se remite adjunta su
+                        <t t-if="object.name">
+                            factura
+                            <strong t-out="object.name or ''">INV/2021/05/0005</strong>
+                        </t>
+                        <t t-else="">
+                            factura
+                        </t>
+                        <t t-if="object.invoice_origin">
+                            (con referencia: <t t-out="object.invoice_origin or ''">SUB003</t>)
+                        </t>
+                        por un importe de
+                        <strong t-out="format_amount(object.amount_total, object.currency_id) or ''">$ 143,750.00
+                        </strong>
+                        de <t t-out="object.company_id.name or ''">YourCompany</t>.
+                        <t t-if="object.payment_state in ('paid', 'in_payment')">
+                            Esta factura ya se encuentra pagada.
+                        </t>
+                        <t t-else="">
+                            Consulte los detalles de plazo y modo de pago en el documento.
+                        </t>
+                        <br/>
+                        <br/>
+                        En caso de requerir cualquier aclaración, por favor no dude en contactarnos.
+                        <t t-if="object.invoice_user_id.signature">
+                            <br/>
+                            <t t-out="object.invoice_user_id.signature or ''">--<br/>Mitchell Admin
+                            </t>
+                        </t>
+                    </p>
+                </div>
+
+
+                <!--<div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Estimado/a
+                        % if object.partner_id.parent_id:
+                            ${object.partner_id.name} (${object.partner_id.parent_id.name}),
+                        % else:
+                            ${object.partner_id.name},
+                        % endif
+                        <br /><br />
+                        Se remite adjunta su
+                        % if object.name:
+                            factura <strong>${object.name}</strong>
+                        % else:
+                            factura
+                        %endif
+                        % if object.invoice_origin:
+                            (con referencia: ${object.invoice_origin})
+                        % endif
+                        por un importe de <strong>${format_amount(object.amount_total, object.currency_id)}</strong>
+                        de ${object.company_id.name}.
+                        % if object.invoice_payment_state == 'paid':
+                            Esta factura ya se encuentra pagada.
+                        % else:
+                            Consulte los detalles de plazo y modo de pago en el documento.
+                        % endif
+                        <br /><br />
+                        En caso de requerir cualquier aclaración, por favor no dude en contactarnos.
+                    </p>
+                </div>-->
+            </field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <!--<field name="user_signature" eval="False"/>-->
+            <field name="auto_delete" eval="True"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_bank_payment_file_account_bank_payment_file,account_bank_payment_file.account_bank_payment_file,model_account_bank_payment_file_account_bank_payment_file,base.group_user,1,1,1,1

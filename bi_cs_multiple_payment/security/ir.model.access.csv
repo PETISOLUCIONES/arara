@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_customer_multi_payments,access.customer.multi.payments,model_customer_multi_payments,account.group_account_invoice,1,1,1,1
+access_customer_invoice_lines,access.customer.invoice.lines,model_customer_invoice_lines,account.group_account_invoice,1,1,1,1
+access_supplier_invoice_lines,access.supplier.invoice.lines,model_supplier_invoice_lines,account.group_account_invoice,1,1,1,1

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_legal_report_partner_form" model="ir.ui.view">
+    <field name="name">legal.reports.partner.form</field>
+    <field name="model">legal.reports.partner</field>
+    <field name="arch" type="xml">
+      <form string="Informes de Terceros">
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+              <button name="toggle_active" type="object"
+                      class="oe_stat_button" icon="fa-archive">
+                  <field name="active" widget="boolean_button"
+                      options='{"terminology": "archive"}'/>
+              </button>
+          </div>
+          
+          <group>
+            <field name="name"/>
+          </group>
+          <label for="columns_ids"/>
+          <field name="columns_ids">
+            <tree editable="buttom">
+              <field name="sequence" widget="handle" />
+              <field name="name"/>
+              <field name="column"/>
+            </tree>
+          </field>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_legal_report_partner_tree" model="ir.ui.view">
+    <field name="name">legal.reports.partner.tree</field>
+    <field name="model">legal.reports.partner</field>
+    <field name="arch" type="xml">
+      <tree string="Informes de Terceros">
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_legal_report_partner_form" model="ir.actions.act_window">
+    <field name="name">Columnas de Terceros</field>
+    <field name="res_model">legal.reports.partner</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        <!-- Add Text Here -->
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+  <menuitem id="menu_legal_report_partner_config"
+    name="Columnas de Terceros"
+    action="action_legal_report_partner_form"
+    parent="menu_legal_reports_config_root"/>
+
+</odoo>

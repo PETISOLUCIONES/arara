@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="module_l10n_co_edi_jorels_category" model="ir.module.category">
+        <field name="name">Facturación electrónica</field>
+    </record>
+
+          <!-- Travel Route User Group -->
+    <record id="l10n_co_edi_jorels_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id"
+               ref="module_l10n_co_edi_jorels_category"/>
+        <field name="implied_ids"
+               eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+
+
+        <!-- Travel Route Manager Group -->
+    <record id="l10n_co_edi_jorels_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_l10n_co_edi_jorels_category"/>
+        <field name="implied_ids" eval="[(4, ref('l10n_co_edi_jorels_group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+    </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="action_legal_report_tax_certification" model="ir.actions.report">
+            <field name="name">Impuestos y Retenciones</field>
+            <field name="model">legal.reports.tax.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_co_legal_reports.teplate_tax_certification</field>
+            <field name="report_file">l10n_co_legal_reports.teplate_tax_certification</field>
+            <field name="binding_model_id" ref="model_legal_reports_tax_wizard"/>
+            <field name="binding_type">report</field>
+        </record>
+
+      <!-- Translatable template -->
+      <template id="teplate_tax_certification">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+              <t t-call="web.external_layout">
+                  <t t-foreach="datos" t-as="d">
+                    <div class="page">
+                    <t t-set="currency_id" t-value="env['res.partner'].browse(d['partner_id']).company_id.currency_id"/>
+                    <h2 style="padding-top: 15px;text-align: center;">
+                        <span t-esc="data['wizard_values']['legal_reports_tax_id'][1]"/>
+                    </h2>
+                    <div class="row">
+                        <div class="col-6">
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-12">
+                            Durante el período <t t-esc="date_from"/> - <t t-esc="date_to"/>, practicó en la ciudad de
+                            <strong><t t-esc="env.user.company_id.city"/></strong> al sujeto pasivo
+                            <strong><t t-esc="env['res.partner'].browse(d['partner_id']).display_name"/></strong> con NIT: <strong><t t-esc="env['res.partner'].browse(d['partner_id']).vat_num"/></strong>.
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <table class="table table-condensed">
+                            <colgroup>
+                                <col span="1" style="width: 70%;"/>
+                                <col span="1" style="width: 15%;"/>
+                                <col span="1" style="width: 15%;"/>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="text-left"><strong>Concepto</strong></th>
+                                    <th class="text-right"><strong>Valor</strong></th>
+                                    <th class="text-right"><strong>Base</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="total_amount" t-value="0.0"/>
+                                <tr t-foreach="lineas" t-as="l">
+                                    <td class="text-left"><t t-esc="l['tax_name']"/></td>
+                                    <td class="text-right">
+                                        <span t-esc="l['amount']"
+                                            t-esc-options='{"widget": "monetary", "display_currency": currency_id}' />
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="l['base']"
+                                            t-esc-options='{"widget": "monetary", "display_currency": currency_id}' />
+                                    </td>
+                                    <t t-set="total_amount" t-value="total_amount+l['amount']"/>
+                                </tr>
+                                <tr>
+                                  <b>
+                                    <td class="text-left">Total</td>
+                                    <td class="text-right">
+                                        <span t-esc="total_amount"
+                                            t-esc-options='{"widget": "monetary", "display_currency": currency_id}' />
+                                    </td>
+                                    <td class="text-right"></td>
+                                  </b>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <br/>
+                    <div class="row" style="margin-top: 50px;">
+                        <div class="col-12">
+                            Señor contribuyente: Favor tener en cuenta que la base certificada por nosotros corresponde a
+                            la sometida a retención durante el período gravable según las normas vigentes sobre la materia
+                            y podría ser diferente a lo facturado por usted durante el mismo periodo. al declarar tenerlo
+                            presente.
+                        </div>
+                        <br/>
+                        <div class="col-12">
+                            El presente certificado se expide en concordancia con las disposiciones legales contenidas en
+                            el articulo 381 del estatuto tributario.
+                        </div>
+                        <br/>
+                        <div class="col-12">
+                            Dicha Retención fue consignada oportunamente a nombre de la Dirección de Impuestos y Aduanas
+                            Nacionales en la Ciudad de <t t-esc="env.user.company_id.city"/>
+                        </div>
+                        <br/>
+                        <div class="col-12">
+                            NO REQUIRE FIRMA AUTOGRAFIADA (ART. 10 DECRETO 386/91)
+                        </div>
+                        <br/>
+                        <div class="col-12" style="padding-top: 15px;">
+                          <strong>Elaborado por: <span t-esc="env.user.partner_id.display_name"/></strong>
+                        </div>
+
+                    </div>
+                </div>
+                  </t>
+              </t>
+            </t>
+         </t>
+      </template>
+
+
+      <!--<report
+          id="action_legal_report_tax_certification"
+          model="legal.reports.tax.wizard"
+          string="Certificado de Impuestos y Retenciones"
+          report_type="qweb-pdf"
+          name="l10n_co_legal_reports.teplate_tax_certification"
+          file="l10n_co_legal_reports.teplate_tax_certification"
+          groups="account.group_account_user"
+          menu="False"/>-->
+
+
+    </data>
+</odoo>

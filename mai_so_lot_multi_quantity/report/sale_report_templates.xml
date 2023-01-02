@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_multi_lot_added_sale_order_report_document"  inherit_id="sale.report_saleorder_document">
+        <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th" position="after">
+            <th>Lot/Serial No</th>
+        </xpath>
+        <xpath expr="//tbody[@class='sale_tbody']//tr/t[1]/td[1]"  position="after">
+        	<td class="text-center">
+	        	<span t-esc="', '.join(map(lambda x: (x.name), line.lot_ids))"/>
+            </td>
+        </xpath>
+    </template>
+</odoo>

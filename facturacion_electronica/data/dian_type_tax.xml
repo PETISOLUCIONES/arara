@@ -1,0 +1,116 @@
+<odoo>
+    <data>
+        <record id="type_tax_01" model="dian.typetax">
+            <field name="name">IVA</field>
+            <field name="code">01</field>
+            <field name="description">Impuesto de Valor Agregado</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_02" model="dian.typetax">
+            <field name="name">IC</field>
+            <field name="code">02</field>
+            <field name="description">Impuesto al Consumo Departamental Nominal</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_03" model="dian.typetax">
+            <field name="name">ICA</field>
+            <field name="code">03</field>
+            <field name="description">Impuesto de Industria, Comercio y Aviso</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_04" model="dian.typetax">
+            <field name="name">INC</field>
+            <field name="code">04</field>
+            <field name="description">Impuesto Nacional al Consumo</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_05" model="dian.typetax">
+            <field name="name">ReteIVA</field>
+            <field name="code">05</field>
+            <field name="description">Retención sobre el IVA</field>
+            <field name="retention">True</field>
+        </record>
+
+        <record id="type_tax_06" model="dian.typetax">
+            <field name="name">ReteFuente</field>
+            <field name="code">06</field>
+            <field name="description">Retención sobre Renta</field>
+            <field name="retention">True</field>
+        </record>
+
+        <record id="type_tax_07" model="dian.typetax">
+            <field name="name">ReteICA</field>
+            <field name="code">07</field>
+            <field name="description">Retención sobre el ICA</field>
+            <field name="retention">True</field>
+        </record>
+
+        <record id="type_tax_20" model="dian.typetax">
+            <field name="name">FtoHorticultura</field>
+            <field name="code">20</field>
+            <field name="description">Cuota de Fomento Hortifrutícula</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_21" model="dian.typetax">
+            <field name="name">Timbre</field>
+            <field name="code">21</field>
+            <field name="description">Impuesto de Timbre</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_22" model="dian.typetax">
+            <field name="name">Bolsas</field>
+            <field name="code">22</field>
+            <field name="description">Impuesto al Consumo de Bolsa Plástica</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_23" model="dian.typetax">
+            <field name="name">INCarbono</field>
+            <field name="code">23</field>
+            <field name="description">Impuesto Nacional al Carbono</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_24" model="dian.typetax">
+            <field name="name">INCombustibles</field>
+            <field name="code">24</field>
+            <field name="description">Impuesto Nacional a los Combustibles</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_25" model="dian.typetax">
+            <field name="name">Sobretasa Combustibles</field>
+            <field name="code">25</field>
+            <field name="description">Sobretasa a los combustibles</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_26" model="dian.typetax">
+            <field name="name">Sordicom</field>
+            <field name="code">26</field>
+            <field name="description">Contribución minoristas (Combustibles)</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_ZY" model="dian.typetax">
+            <field name="name">No causa</field>
+            <field name="code">ZY</field>
+            <field name="description">No responsable de tributo</field>
+            <field name="retention">False</field>
+        </record>
+
+        <record id="type_tax_ZZ" model="dian.typetax">
+            <field name="name">Otros tributos, tasas, contribuciones, y similares</field>
+            <field name="code">ZZ</field>
+            <field name="description">Nombre de la figura tributaria</field>
+            <field name="retention">False</field>
+        </record>
+
+    </data>
+</odoo>

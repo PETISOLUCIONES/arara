@@ -1,0 +1,44 @@
+<odoo>
+  <data>
+
+      <record id="res_partner_bank_account_default_form" model="ir.ui.view">
+      <field name="name">res.partner.bank.account.default.form</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="account.view_company_partner_bank_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group" position="inside">
+                    <group>
+                        <field name="office_code" />
+                        <field name="bank_default" />
+                    </group>
+                </xpath>
+            </field>
+    </record>
+
+
+     <record id="res_partner_bank_account_default_tree" model="ir.ui.view">
+      <field name="name">res.partner.bank.account.default.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='acc_number']" position="after">
+                        <field name="office_code" />
+                        <field name="bank_default" />
+                </xpath>
+            </field>
+    </record>
+
+      <record id="res_partner_bank_account_default_form" model="ir.ui.view">
+      <field name="name">res.partner.bank.account.default.form</field>
+            <field name="model">res.partner.bank</field>
+            <field name="inherit_id" ref="base.view_partner_bank_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='acc_type']" position="after">
+                        <field name="office_code" />
+                        <field name="bank_default" />
+                </xpath>
+            </field>
+    </record>
+
+  </data>
+</odoo>

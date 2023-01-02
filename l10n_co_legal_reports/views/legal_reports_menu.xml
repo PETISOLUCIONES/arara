@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+              Informes y Certificaciones
+        -->
+
+        <menuitem id="menu_legal_reports_root"
+          name="Informes y Certificaciones"
+          parent="account.menu_finance_reports"
+          sequence="3"
+          groups="account.group_account_manager,account.group_account_user"/>
+
+
+
+
+
+
+
+        <!--
+              Configuraciones
+        -->
+        <menuitem id="menu_legal_reports_config_root"
+          name="Informes y/o Certificaciones"
+          sequence="1"
+          parent="account.menu_finance_configuration"
+          groups="account.group_account_manager"/>
+
+    </data>
+</odoo>

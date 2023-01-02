@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+         <record id="fiscal_regimen_48" model="dian.fiscalregimen">
+            <field name="name">responsable del impuesto sobre las ventas –IVA</field>
+            <field name="code">48</field>
+        </record>
+
+        <record id="fiscal_regimen_49" model="dian.fiscalregimen">
+            <field name="name">No responsable de IVA</field>
+            <field name="code">49</field>
+        </record>
+    </data>
+</odoo>

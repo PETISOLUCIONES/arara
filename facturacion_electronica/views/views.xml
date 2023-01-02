@@ -1,0 +1,417 @@
+<odoo>
+  <data>
+    <record id="company_form_view_monitor" model="ir.ui.view">
+    <field name="name">res.company.common.form.monitor</field>
+     <field name="model">res.company</field>
+     <field name="inherit_id" ref="base.view_company_form"/>
+     <field name="arch" type="xml">
+         <!--<xpath expr="//div/field[@name='street2']" position="after">
+                <field name="city_id" placeholder="Ciudad" class="o_address_city"/>
+        </xpath>
+         <field name="city" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </field>-->
+         <field name="vat" position="before">
+            <field name="document_type_id"/>
+        </field>
+        <xpath expr="//form/sheet/notebook/page[1]" position="after">
+           <page string="Información de facturación electronica">
+               <group>
+                   <group>
+                       <field name="operation_type_id"/>
+                       <field name="company_type_id"/>
+                       <field name="regime_type"/>
+                       <field name="fiscal_responsibility_ids"
+                         widget="many2many_tags" />
+                       <field name="commercial_registration"/>
+                    </group>
+                   <group>
+                       <field name="software_pin"/>
+                       <field name="test_set"/>
+                       <field name="software_id"/>
+                       <field name="ip_webservice" groups="base.group_no_one" />
+                       <field name="ruta_plantilla" groups="base.group_no_one" />
+                   </group>
+               </group>
+           </page>
+         </xpath>
+     </field>
+   </record>
+
+    <record id="dian_operationtype_tree" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.operationtype.tree</field>
+        <field name="model">dian.operationtype</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de operación">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+      <record id="dian_operationtype_form" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.operationtype.form</field>
+        <field name="model">dian.operationtype</field>
+        <field name="arch" type="xml">
+            <form string="Tipos de operación">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="action_view_operationtype" model="ir.actions.act_window">
+        <field name="name">TiposOperaciones</field>
+          <field name="res_model">dian.operationtype</field>
+      </record>
+
+      <record id="dian_companytype_tree" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.companytype.tree</field>
+        <field name="model">dian.companytype</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de compañia">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+      <record id="dian_companytype_form" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.companytype.form</field>
+        <field name="model">dian.companytype</field>
+        <field name="arch" type="xml">
+            <form string="Tipos de compañia">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="action_view_companytype" model="ir.actions.act_window">
+        <field name="name">TiposCompany</field>
+          <field name="res_model">dian.companytype</field>
+      </record>
+
+    <record id="dian_documenttype_tree" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.documenttype.tree</field>
+        <field name="model">dian.documenttype</field>
+        <field name="arch" type="xml">
+            <tree string="Tipos de documento">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+      <record id="dian_documenttype_form" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.documenttype.form</field>
+        <field name="model">dian.documenttype</field>
+        <field name="arch" type="xml">
+            <form string="Tipos de documento">
+                <sheet>
+                    <group>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+      </record>
+
+      <record id="action_view_documenttype" model="ir.actions.act_window">
+        <field name="name">TiposDocument</field>
+          <field name="res_model">dian.documenttype</field>
+      </record>
+
+    <record id="resolution_view_form" model="ir.ui.view">
+    <field name="name">view.account.journal.form.resolution</field>
+     <field name="model">account.journal</field>
+     <field name="inherit_id" ref="account.view_account_journal_form"/>
+     <field name="arch" type="xml">
+         <field name="refund_sequence" position="after">
+            <field name="debit_note"/>
+        </field>
+        <!-- <xpath expr="//page[@name='advanced_settings']/group" position="inside">
+            <group string="Resolución DIAN" attrs="{'invisible':[('type', '!=', 'sale')]}">
+                <field name="resolution_id" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="resolution" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="start_date" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="end_date" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="start_range" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="end_range" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+                <field name="technical_key" attrs="{'invisible':[('type', '!=', 'sale')], 'required':[('type', '=', 'sale')]}"/>
+            </group>
+        </xpath>-->
+     </field>
+   </record>
+
+
+
+      <record id="city_view_form" model="ir.ui.view">
+    <field name="name">view.res.partner.form.city</field>
+     <field name="model">res.partner</field>
+     <field name="inherit_id" ref="base.view_partner_form"/>
+     <field name="arch" type="xml">
+         <!--<xpath expr="//div/field[@name='street2']" position="after">
+                <field name="city_id" placeholder="Ciudad" class="o_address_city"/>
+            </xpath>
+        <field name="city" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </field>-->
+        <field name="vat" position="after">
+           <field name="partner_currency_id"/>
+        </field>
+         <!--<field name="currency_id" position="attributes">
+            <attribute name="invisible">0</attribute>
+              <attribute name="readonly">0</attribute>
+        </field>-->
+         <field name="property_account_position_id" position="after">
+             <!--<field name="representation_type_id" />
+             <field name="establishment_type_id" />
+             <field name="fiscal_responsibility_partner_ids" widget="many2many_tags" />
+             <field name="large_taxpayer" />
+             <field name="simplified_regimen" />
+             <field name="fiscal_regimen" />-->
+             <field name="fiscal_responsibility_partner_ids" widget="many2many_tags" />
+             <field name="organization_type_id" />
+             <field name="commercial_registration_partner" />
+        </field>
+     </field>
+   </record>
+
+    <!-- <record id="res_partner_document_type_inherit" model="ir.ui.view">
+    <field name="name">view.res.partner.form.document_type</field>
+     <field name="model">res.partner</field>
+     <field name="inherit_id" ref="l10n_co.view_partner_form_inherit_l10n_co"/>
+     <field name="arch" type="xml">
+        <field name="l10n_co_document_type" position="replace">
+            <field name="document_type_id" />
+        </field>
+     </field>
+   </record>-->
+
+<record id="type_tax_view_form" model="ir.ui.view">
+    <field name="name">view.account.tax.form.city</field>
+     <field name="model">account.tax</field>
+     <field name="inherit_id" ref="account.view_tax_form"/>
+     <field name="arch" type="xml">
+        <field name="tax_group_id" position="after">
+            <field name="type_tax"/>
+        </field>
+     </field>
+   </record>
+
+     <!--- <record id="account_move_reversal_concept_view_form" model="ir.ui.view">
+    <field name="name">view.account.move.reversal.form.concept</field>
+     <field name="model">account.move.reversal</field>
+     <field name="inherit_id" ref="account.view_account_move_reversal"/>
+     <field name="arch" type="xml">
+        <field name="reason" position="after">
+            <field name="concept_note_credit_id"/>
+        </field>
+     </field>
+   </record>-->
+
+    <record id="dian_typetax_tree" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.typetax.tree</field>
+        <field name="model">dian.typetax</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="retention"/>
+            </tree>
+        </field>
+    </record>
+
+      <record id="dian_fiscalresponsibility_tree" model="ir.ui.view">
+        <field name="name">facturacion_monitor.dian.fiscalresponsibility.tree</field>
+        <field name="model">dian.fiscalresponsibility</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+      <record id="view_country_tree" model="ir.ui.view">
+            <field name="name">res.country.tree</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="after">
+                    <field name="code_dian"/>
+                </xpath>
+            </field>
+        </record>
+
+
+      <record id="view_move_account_form" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@id='header_right_group']" position="after">
+                    <group>
+                        <!--<field name="document_type" attrs="{'readonly':[('state','not in',['draft'])],'required':[('type', '=', 'out_invoice')], 'invisible':[('type', '!=', 'out_invoice')]}" />-->
+                        <field name="comentario" attrs="{'readonly':[('state','not in',['draft'])], 'invisible':[('move_type', 'not in', ['out_invoice', 'out_refund'])]}" />
+                        <field name="payment_method_id" attrs="{'readonly':[('state','not in',['draft'])], 'invisible':[('move_type', 'not in', ['out_invoice', 'out_refund'])]}" />
+                        <field name="payment_mean_id" attrs="{'readonly':[('state','not in',['draft'])], 'invisible':[('move_type', 'not in', ['out_invoice', 'out_refund'])]}" />
+                        <!--<field name="currency_rate" attrs="{'invisible':[('type', 'not in', ['out_invoice', 'out_refund'])]}" readonly="True"/>-->
+                        <field name="description_code_credit" attrs="{'invisible': [('move_type', '!=', 'out_refund')], 'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="description_code_debit" attrs="{'required': [('debit_note', '=', True)], 'invisible': [('debit_note', '!=', True)]}"/>
+                    </group>
+                    <group>
+                        <field name="debit_note" invisible="True"/>
+                        <!--<field name="url_pdf" widget="url" readonly="True" attrs="{'invisible':['|',('invoice_status_dian','!=','Exitoso'), ('move_type', 'not in', ['out_invoice', 'out_refund'])]}"/>-->
+                        <label string="Representación Gráfica" for="get_pdf_fact" class="o_form_label o_readonly_modifier"/>
+                        <button name="get_pdf_fact" type="object" string="Ver factura" attrs="{'invisible':['|',('invoice_status_dian','!=','Exitoso'), ('move_type', 'not in', ['out_invoice', 'out_refund'])]}"/>
+                        <field name="url_xml" widget="url" readonly="True" attrs="{'invisible':['|', ('invoice_status_dian', '!=', 'Exitoso'), ('move_type', 'not in', ['out_invoice', 'out_refund'])]}"/>
+                        <field name="invoice_status_dian" invisible="False" widget="badge" readonly="True"  decoration-danger="invoice_status_dian == 'Fallida'" decoration-success="invoice_status_dian == 'Exitoso'" attrs="{'invisible':[('move_type', 'not in', ['out_invoice', 'out_refund'])]}"/>
+                        <field name="description_status_dian" attrs="{'invisible':['|',('invoice_status_dian', '!=', 'Fallida'), ('move_type', 'not in', ['out_invoice', 'out_refund'])]}" readonly="True"/>
+                    </group>
+                </xpath>
+                 <page name="other_info" position="after">
+                    <page string="Archivos Adjuntos">
+                        <group>
+                            <group>
+                                <field name="attachment_ids" widget="many2many_binary"/>
+                            </group>
+                        </group>
+                    </page>
+                </page>
+                <field name="to_check" position="after">
+                    <field name="invoice_batch"/>
+                </field>
+                <!--<xpath expr="//field[@name='company_id']" position="after">
+                    <field name="currency_rate" attrs="{'invisible':[('type', 'not in', ['out_invoice', 'out_refund'])]}" readonly="True"/>
+                </xpath>-->
+            </field>
+        </record>
+
+        <record id="view_country_form" model="ir.ui.view">
+            <field name="name">res.country.form</field>
+            <field name="model">res.country</field>
+            <field name="inherit_id" ref="base.view_country_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='code']" position="before">
+                    <field name="code_dian"/>
+                </xpath>
+            </field>
+        </record>
+
+      <record id="view_account_move_form" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_post']" position="after">
+                    <button name="action_post1" type="object" string="Enviar DIAN" attrs="{'invisible': ['|', '|',  ('state', '!=', 'posted'), ('invoice_status_dian', '==', 'Exitoso'), ('move_type', 'not in', ('out_invoice', 'out_refund')) ]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="attributes">
+                     <attribute name="attrs">{'invisible': ['|','|', ('restrict_mode_hash_table', '=', True), ('state', 'not in', ('posted', 'cancel')), ('invoice_status_dian', '==', 'Exitoso')]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_invoice_sent'][1]" position="attributes">
+                     <attribute name="attrs">{'invisible':['|', '|', '|', ('state', '!=', 'posted'), ('is_move_sent', '=', True), ('move_type', 'not in', ('out_invoice', 'out_refund')), ('invoice_status_dian', '!=', 'Exitoso')]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_invoice_sent'][2]" position="attributes">
+                     <attribute name="attrs">{'invisible':['|', '|', '|', ('state', '!=', 'posted'), ('is_move_sent', '=', False), ('move_type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), ('invoice_status_dian', '!=', 'Exitoso')]}</attribute>
+                </xpath>
+                 <xpath expr="//button[@name='action_reverse']" position="attributes">
+                     <attribute name="attrs">{'invisible': [ '|','|', ('move_type', 'not in', ('out_invoice', 'in_invoice')), ('state', '!=', 'posted'),  ('invoice_status_dian', '==', 'Fallida'),  ]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+      <!--<record id="view_account_move_form_debit_note" model="ir.ui.view">
+            <field name="name">account.move.form.debit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account_debit_note.view_move_form_debit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='278']" position="attributes">
+                    <attribute name="string">Agregar nota debito</attribute>
+                     <attribute name="attrs">{'invisible': ['|', '|','|', ('debit_origin_id', '!=', False), ('type', 'not in', ('out_invoice', 'in_invoice', 'out_refund', 'in_refund')), ('state', '!=', 'posted'), ('invoice_status_dian', '!=', 'Exitoso')]}</attribute>
+                </xpath>
+            </field>
+        </record>-->
+
+      <record id="view_account_move_reversal_inherit" model="ir.ui.view">
+          <field name="name">account.move.reversal.form</field>
+          <field name="model">account.move.reversal</field>
+          <field name="inherit_id" ref="account.view_account_move_reversal"/>
+          <field name="arch" type="xml">
+            <field name="reason" position="after">
+                <field name="concept_note_credit_id"/>
+            </field>
+          </field>
+      </record>
+
+      <!--<record id="view_account_payment_term_inherit" model="ir.ui.view">
+          <field name="name">account.payment.term.inherit</field>
+          <field name="model">account.payment.term</field>
+          <field name="inherit_id" ref="account.view_payment_term_form"/>
+          <field name="arch" type="xml">
+               <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="payment_mean_id"/>
+                </xpath>
+          </field>
+      </record>-->
+
+       <record id="view_accoun_move_debit_note_inherit" model="ir.ui.view">
+          <field name="name">account.move.debit_note.form</field>
+          <field name="model">account.debit.note</field>
+          <field name="inherit_id" ref="account_debit_note.view_account_debit_note"/>
+          <field name="arch" type="xml">
+            <field name="journal_id" position="after">
+                <field name="concept_debit_note_id" />
+            </field>
+              <field name="journal_id" position="attributes">
+            <attribute name="domain">[('debit_note','=', True)]</attribute>
+        </field>
+          </field>
+      </record>
+
+      <record id="view_send_invoice_dian_sale" model="ir.ui.view">
+           <field name="name">view.send.invoice.dian.sale</field>
+            <field name="model">sale.advance.payment.inv</field>
+            <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+            <field name="arch" type="xml">
+                <xpath expr="//footer/button[2]" position="after">
+                    <button name="create_invoices" type="object" string="Crear Factura y Enviar DIAN" context="{'open_invoices': True, 'send_dian': True}" />
+                </xpath>
+            </field>
+      </record>
+
+      <record id="view_send_invoice_dian_draft" model="ir.ui.view">
+           <field name="name">view.send.invoice.dian.draft</field>
+            <field name="model">validate.account.move</field>
+            <field name="inherit_id" ref="account.validate_account_move_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//footer/button[@name = 'validate_move']" position="after">
+                    <button name="validate_move" type="object" string="Validar asientos y Enviar DIAN" context="{'send_dian': True}" />
+                </xpath>
+            </field>
+      </record>
+
+      <record id="view_tree__invoice_status_dian" model="ir.ui.view">
+          <field name="name">view.tree.invoice.status.dian</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="invoice_status_dian" readonly="True" widget="badge" decoration-danger="invoice_status_dian == 'Fallida'" decoration-success="invoice_status_dian == 'Exitoso'" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')"/>
+                </field>
+            </field>
+      </record>
+
+  </data>
+</odoo>

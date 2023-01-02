@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_legal_report_account_form" model="ir.ui.view">
+    <field name="name">legal.reports.account.form</field>
+    <field name="model">legal.reports.account</field>
+    <field name="arch" type="xml">
+      <form string="Informes de Terceros">
+        <sheet>
+          <div class="oe_button_box" name="button_box">
+              <button name="toggle_active" type="object"
+                      class="oe_stat_button" icon="fa-archive">
+                  <field name="active" widget="boolean_button"
+                      options='{"terminology": "archive"}'/>
+              </button>
+          </div>
+          <group name="main_info">
+              <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+          </group>
+
+          <group>
+            <field name="name"/>
+            <field name="description"/>
+            <field name="parent_id"/>
+          </group>
+          <notebook>
+            <page string="Parametros" attrs="{'invisible': [('parent_id','=',False)]}">
+              <group>
+                <field name="initial_balance"/>
+                <field name="account_domain"/>
+                <field name="account_ids" widget="many2many_tags"
+                       options="{'no_create': True}"/>
+              </group>
+            </page>
+            <page string="Informes" autofocus="autofocus" attrs="{'invisible': [('parent_id','!=',False)]}">
+              <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id, }">
+                  <kanban>
+                    <field name="name"/>
+                    <field name="color"/>
+                      <templates>
+                          <t t-name="kanban-box">
+                              <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                              <div t-att-class="color + ' oe_kanban_global_click'">
+                                  <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
+                                  <div class="oe_kanban_details">
+                                      Concepto: <field name="name"/>
+                                      <!--
+                                      <div t-if="record.function.raw_value"><field name="function"/></div>
+                                      <div t-if="record.email.raw_value"><field name="email" widget="email"/></div>
+                                      <div t-if="record.phone.raw_value">Phone: <field name="phone"/></div>
+                                      <div t-if="record.mobile.raw_value">Mobile: <field name="mobile"/></div>
+                                    -->
+                                  </div>
+                              </div>
+                          </t>
+                      </templates>
+                  </kanban>
+              </field>
+            </page>
+          </notebook>
+          <hr/>
+          <label for="note" string="Información adicional"/>
+          <field name="note"/>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_legal_report_account_tree" model="ir.ui.view">
+    <field name="name">legal.reports.account.tree</field>
+    <field name="model">legal.reports.account</field>
+    <field name="arch" type="xml">
+      <tree string="Informes de Terceros">
+        <field name="parent_id"/>
+        <field name="name"/>
+        <field name="description"/>
+        <!--
+        <field name="initial_balance"/>
+        <field name="account_domain"/>
+      -->
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_legal_report_account_form" model="ir.actions.act_window">
+    <field name="name">Informes de Terceros</field>
+    <field name="res_model">legal.reports.account</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        <!-- Add Text Here -->
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+  <menuitem id="menu_legal_report_account_config"
+    name="Informes de Terceros"
+    action="action_legal_report_account_form"
+    parent="menu_legal_reports_config_root"/>
+
+
+</odoo>

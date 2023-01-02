@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="action_account_payment_file" model="ir.actions.server">
+            <field name="name">Generar dispersion banco</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_view_types">list</field>
+            <field name="code">
+                action = records.generar_archivo_banco()
+            </field>
+        </record>
+
+        <!--<record id="action_account_payment_file" model="ir.actions.server">
+            <field name="name">Generar dispersion banco</field>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.generar_archivo_banco()
+            </field>
+        </record>-->
+
+        <!--<record id="res_partner_bank_payment_form" model="ir.ui.view">
+      <field name="name">res.partner.bank.payment.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='communication']" position="after">
+                        <field name="bank_account_id" />
+                </xpath>
+            </field>
+    </record>-->
+
+    </data>
+</odoo>

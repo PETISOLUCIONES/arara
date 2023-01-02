@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="0">
+    <record model="legal.reports.partner" id="Terceros_DIAN">
+        <field name="name">Terceros DIAN</field>
+    </record>
+
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1001">
+      <field name="sequence">1001</field>
+      <field name="name">Tipo de Documento</field>
+      <field name="column">vat_type</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1002">
+      <field name="sequence">1002</field>
+      <field name="name">NIT</field>
+      <field name="column">vat</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1003">
+      <field name="sequence">1003</field>
+      <field name="name">DV</field>
+      <field name="column">vat_vd</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1004">
+      <field name="sequence">1004</field>
+      <field name="name">1er Apellido</field>
+      <field name="column">last_name</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1005">
+      <field name="sequence">1005</field>
+      <field name="name">2do Apellido</field>
+      <field name="column">second_last_name</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1006">
+      <field name="sequence">1006</field>
+      <field name="name">1er Nombre</field>
+      <field name="column">first_name</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1007">
+      <field name="sequence">1007</field>
+      <field name="name">Otros Nombres</field>
+      <field name="column">middle_name</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1008">
+      <field name="sequence">1008</field>
+      <field name="name">Razon Social</field>
+      <field name="column">name</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1009">
+      <field name="sequence">1009</field>
+      <field name="name">Direccion</field>
+      <field name="column">street</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1010">
+      <field name="sequence">1010</field>
+      <field name="name">email</field>
+      <field name="column">email</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1011">
+      <field name="sequence">1011</field>
+      <field name="name">Ciudad</field>
+      <field name="column">state_id.code</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+    <record model="legal.reports.partner.columns" id="DIAN_Column_1012">
+      <field name="sequence">1012</field>
+      <field name="name">Pais</field>
+      <field name="column">country_id.code_dian</field>
+      <field name="report_partner_id" ref="l10n_co_legal_reports.Terceros_DIAN"/>
+    </record>
+  </data>
+</odoo>

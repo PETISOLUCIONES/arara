@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="report_saleorder_document_sequence" inherit_id="sale.report_saleorder_document">
+		<xpath expr="//table[hasclass('table', 'table-sm')]/thead/tr/th[1]" position="before">
+			<th><strong>Items</strong></th>
+		</xpath>
+		<xpath expr="//table[hasclass('table', 'table-sm')]/tbody/t/tr[1]/t[1]/td[1]" position="before">
+			 <td>
+				<span t-field="line.sequence2"/>
+			 </td>
+		</xpath>
+
+		<xpath expr="//div[@class='page']/table[@class='table table-sm o_main_table']/tbody[@class='sale_tbody']//t[2]" position="after">
+			<tr t-att-class="'bg-200 font-weight-bold o_line_section'">
+
+				<td>
+					Total Items: <span t-esc="len(doc.order_line)"/>
+				</td>
+				<td>
+
+				</td>
+				<td>
+					
+				</td>
+				<td>
+					
+				</td>
+				<td>
+					
+				</td>
+				<td>
+					
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+		</xpath>
+	</template>
+
+</odoo>

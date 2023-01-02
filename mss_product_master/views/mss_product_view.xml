@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mss_view_product_template_action" model="ir.actions.act_window">
+            <field name="name">Productos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="product.product_template_kanban_view"/>
+            <field name="search_view_id" ref="product.product_template_search_view"/>
+            <field name="context">{"search_default_filter_to_sell":1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crear un nuevo producto
+                </p>
+                <p>
+                    Debe definir un producto para todo lo que compra,
+                    ya sea un producto físico, un consumible o servicios.
+                </p>
+            </field>
+        </record>
+        <!--Products Menu-->
+        <menuitem id="mss_menu_product_template" name="Productos" web_icon="mss_product_master,static/description/icon.png"
+                  sequence="1" action="mss_view_product_template_action"/>
+    </data>
+</odoo>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="view_legal_report_tax_form" model="ir.ui.view">
+    <field name="name">legal.reports.tax.form</field>
+    <field name="model">legal.reports.tax</field>
+    <field name="arch" type="xml">
+      <form string="Impuestos y Retenciones">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="tax_domain"/>
+            <field name="tax_ids" widget="many2many_tags"
+                   options="{'no_create': True}"/>
+            <field name="template_id" options="{'no_create': True}"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_legal_report_tax_tree" model="ir.ui.view">
+    <field name="name">legal.reports.tax.tree</field>
+    <field name="model">legal.reports.tax</field>
+    <field name="arch" type="xml">
+      <tree string="Impuestos y Retenciones">
+        <field name="name"/>
+        <field name="tax_domain"/>
+        <field name="template_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_legal_report_tax_form" model="ir.actions.act_window">
+    <field name="name">Impuestos y Retenciones</field>
+    <field name="res_model">legal.reports.tax</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        <!-- Add Text Here -->
+      </p>
+      <p>
+        <!-- More details about what a user can do -->
+      </p>
+    </field>
+  </record>
+
+  <menuitem id="menu_legal_report_tax_config"
+    name="Certificado de Impuestos"
+    action="action_legal_report_tax_form"
+    parent="menu_legal_reports_config_root"/>
+
+
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+       
+        <record id="account_tax_form_ICA" model="ir.ui.view">
+            <field name="name">account.tax.form.ica</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="is_ica"/>
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="after">
+                    <page string="Impuesto ICA" attrs="{'invisible':[('is_ica','=',False)]}">
+                        <group>
+                            <group>
+                                <field name="city_id" attrs="{'required':[('is_ica','=',True)]}"/>
+                            </group>
+                            <!-- <group>
+                                <field name="activity_ids" widget="many2many_tags" attrs="{'required':[('is_ica','=',True)]}"/>
+                            </group> -->
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

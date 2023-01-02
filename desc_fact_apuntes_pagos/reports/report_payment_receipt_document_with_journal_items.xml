@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document_with_journal_items" inherit_id="account.report_payment_receipt_document">
+
+            <xpath expr="//table[1]" position="after">
+                <t t-if="o.move_line_ids">
+                    <br/>
+                    <h6><span>Apuntes Contables<br/></span></h6>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th><span>Asiento contable</span></th>
+                                <th><span>Cuenta</span></th>
+                                <th><span>Descripción</span></th>
+                                <th class="text-right"><span>Debe</span></th>
+                                <th class="text-right"><span>Haber</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.move_line_ids" t-as="move">
+                                <td><span t-field="move.move_id.display_name" /></td>
+                                <td><span t-field="move.account_id" /></td>
+                                <td><span t-field="move.name" /></td>
+                                <td class="text-right"><span t-field="move.debit" /></td>
+                                <td class="text-right"><span t-field="move.credit" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </t>
+            </xpath>
+
+        </template>
+    </data>
+</odoo>

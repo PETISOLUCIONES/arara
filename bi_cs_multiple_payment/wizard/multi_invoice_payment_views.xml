@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+    <record id="cs_multiple_payment_invoice" model="ir.ui.view">
+        <field name="name">Customer Multiple Invoice Payment</field>
+        <field name="model">customer.multi.payments</field>
+        <field name="arch" type="xml">
+            <form string="Customer Multiple Invoice Payment">
+                <p class="oe_grey">
+                </p>
+                <group> 
+                    <group>
+                        <field name="payment_type" readonly='1' invisible="1"/>
+                        <field name="partner_type" readonly='1' invisible="1" />
+                        <field name="journal_id" string="Diario" />
+                        <field name="company_id" groups="base.group_multi_company" required="1" invisible="1"/>
+                        <!--<field name="payment_method_id" widget="radio"/>-->
+                        <field name="payment_method_line_id" widget="radio"/>
+                        <field name="available_payment_method_line_ids" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="payment_date" />
+                        <field name="memo" />
+                        <field name="final_amount" />
+                    </group>
+                    <group name="payment_difference" attrs="{'invisible': [('payment_difference', '=', 0.0)]}">
+                        <label for="payment_difference"/>
+                        <div>
+                            <field name="payment_difference"/>
+                            <field name="payment_difference_handling" widget="radio" nolabel="1"/>
+                            <div attrs="{'invisible': [('payment_difference_handling','=','open')]}">
+                                <label for="writeoff_account_id" class="oe_edit_only" string="Contabilizar la diferencia en"/>
+                                <field name="writeoff_account_id" options="{'no_create': True, 'no_open': True}" string="Contabilizar la diferencia en" attrs="{'required': [('payment_difference_handling', '=', 'reconcile'), ('payment_difference', '!=', 0.0)]}"/>
+                                <label for="writeoff_label" class="oe_edit_only" string="Descripción"/>
+                                <field name="writeoff_label" attrs="{'required': [('payment_difference_handling', '=', 'reconcile'), ('payment_difference', '!=', 0.0)]}"/>
+                            </div>
+                        </div>
+                    </group>
+                </group>
+                <group>
+                    <field name="customer_invoice_ids" nolabel="1" 
+                        attrs="{'invisible':[('partner_type','=','supplier')]}">
+                        <tree editable="bottom" create="false">
+                            <field name="invoice_id"/>
+                            <field name="partner_id"/>
+                            <field name="total_amount" sum="Customer Invoice Amount"/>
+                            <field name="payment_diff" sum="Customer Remaining Amount"/>
+                            <field name="amount_to_pay" sum="Customer Receive Amount" />
+                           <!--<field name="amount_difference"  />-->
+                        </tree>
+                    </field>
+                </group>
+                <group>
+                    <field name="supplier_invoice_ids" nolabel="1" 
+                        attrs="{'invisible':[('partner_type','!=','supplier')]}">
+                        <tree editable="bottom" create="false">
+                            <field name="invoice_id"/>
+                            <field name="partner_id"/>
+                            <field name="total_amount" sum="Vendor Invoice Amount"/>
+                            <field name="payment_diff" sum="Vendor Remaining Amount"/>
+                            <field name="amount_to_pay" sum="Vendor Receive Amount" />
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="register_multi_payment" 
+                        string="Validar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+   <!-- <record id="action_cs_multi_invoice_payment" model="ir.actions.act_window">
+        <field name="name">Customer Register Multiple Payment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">customer.multi.payments</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'invoice_ids': [(4, active_id, None)]}</field>
+        <field name="target">new</field>
+    </record>-->
+    
+    </data>
+</odoo>

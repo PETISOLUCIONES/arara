@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+all_user_give_product_access_right,All.user.give.product.access.right,product.model_product_product,,1,1,1,1
+all_user_sr_multi,all.user.sr.multi,sr_purchase_multi_product_selection.model_sr_multi_product_purchase,,1,1,1,1
+all_user_sr_create,all.user.sr.create,sr_purchase_multi_product_selection.model_sr_create_request_for_quotation,,1,1,1,1

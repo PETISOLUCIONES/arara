@@ -1,0 +1,301 @@
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
+from odoo.tools import DEFAULT_SERVER_DATE_FORMAT as DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT as DATETIME_FORMAT
+import logging
+_logger = logging.getLogger(__name__)
+
+class PartnerReportXLS(models.AbstractModel):
+    _name = 'report.l10n_co_legal_reports.partner_report_xls.xlsx'
+    _inherit = 'report.report_xlsx.abstract'
+    _description = "Colombian Partner Report"
+
+    def get_rows(self, data):
+        legal_reports_account_id = data['form']['legal_reports_account_id']
+        company_id = data['form']['company_id']
+        date_to = data['form']['date_to']
+        date_from = data['form']['date_from']
+
+        acc_ids = []
+        for lra in self.env['legal.reports.account'].browse(legal_reports_account_id[0]):
+            for clra in lra.child_ids:
+                acc_ids += clra.account_ids.ids
+
+        if len(acc_ids) == 1:
+            account_ids="(%s)" % acc_ids[0]
+        else:
+            account_ids=tuple(acc_ids)
+
+        SQL="""
+            SELECT DISTINCT partner_id FROM account_move_line WHERE 
+                account_id IN %s and
+                move_id IN ( SELECT id FROM account_move WHERE
+                    company_id = %s and
+                    state = 'posted' and
+                    date >= '%s'and
+                    date <= '%s'
+                )
+
+
+        """ % (account_ids, company_id[0], date_from, date_to)  #  
+        self.env.cr.execute(SQL)
+        partner_ids = []
+        cols = 0
+        for partner_id in self.env.cr.fetchall():
+            if partner_id[0]:
+                partner_ids += partner_id
+                cols += 1
+            #if cols == 1:
+            #    break
+
+        return partner_ids
+
+    def get_columns(self, data, partner_ids, legal_reports_account_ids):
+        vals = {}
+        date_from = data['form']['date_from']
+        date_to = data['form']['date_to']
+        company_id = data['form']['company_id'][0]
+
+        count = 0
+        counter = len( partner_ids )
+
+        account_ids = []
+        for clra in legal_reports_account_ids.child_ids:
+            if clra.account_ids:
+                account_ids += clra.account_ids.ids
+
+        # Convert tuple
+        account_ids=tuple(account_ids)
+        if len(account_ids) == 1:
+            account_ids="(%s)" % account_ids[0]
+
+        SQL_MOVE_IDS = """
+        SELECT id FROM account_move 
+            WHERE state = 'posted' and
+              id IN (
+                SELECT DISTINCT move_id FROM account_move_line WHERE
+                    company_id = %s and
+                    account_id IN %s and 
+                    date <= '%s')
+        """ % (company_id, account_ids, date_to)
+        self.env.cr.execute(SQL_MOVE_IDS)
+        #fetch = self.env.cr.fetchall()
+        fetch = self.env.cr.dictfetchall()
+        SQL_MOVE_IDS = ()
+        for line in fetch:
+            SQL_MOVE_IDS += (line['id'],)
+        vals = []
+        
+        for clra in legal_reports_account_ids.child_ids:
+
+            if not clra.account_ids:
+                continue
+            
+            elif len(clra.account_ids.ids) == 1:
+                account_ids="(%s)" % clra.account_ids.ids[0]
+            else:
+                account_ids=tuple(clra.account_ids.ids)
+
+            val = {
+                'name': clra.name,
+                'description': "%s - %s" % (clra.name,clra.description),
+                'balance': clra.initial_balance,
+                'data': [],
+                'idata': [],
+            }    
+
+            if clra.initial_balance:
+                SQL="""
+                SELECT partner_id, sum(debit - credit) as balance FROM account_move_line WHERE
+                    company_id = %s and
+                    move_id IN %s and
+                    account_id IN %s and
+                    date < '%s' GROUP BY partner_id
+                """ % (company_id, SQL_MOVE_IDS, account_ids, date_from)
+                self.env.cr.execute(SQL)
+                val['idata'] = self.env.cr.dictfetchall()
+
+            SQL="""
+                SELECT partner_id, sum(debit) as debit, sum(credit) as credit FROM account_move_line WHERE
+                    company_id = %s and
+                    move_id IN %s and
+                    account_id IN %s and
+                    date >= '%s' and
+                    date <= '%s' GROUP BY partner_id
+            """ % (company_id, SQL_MOVE_IDS, account_ids, date_from, date_to)
+            self.env.cr.execute(SQL)
+            val['data'] = self.env.cr.dictfetchall()
+            if val['data'] or val['idata']:
+                vals.append(val)
+
+        #print(SQL_QUERY)
+        #self.env.cr.execute(SQL_QUERY)
+        #for line in self.env.cr.dictfetchall():
+        #    print(line)
+        #####vals['%s' % (partner_id)] = self.env.cr.fetchall()[0]
+
+        #print(vals)
+        #raise "Nada"
+        #print(SQL_QUERY)
+        #_logger.info(_('Generando consulta: %s') % (SQL_QUERY))
+        return vals
+
+
+    @api.multi
+    def get_field_value(self, value, field_name):
+        if type( value ):
+            return
+
+    def _get_report_name(self, data):
+        legal_reports_account_id = data['form']['legal_reports_account_id'][0]
+        legal_report = self.env['legal.reports.account'].browse(legal_reports_account_id)
+        report_name = "%s - %s" % (legal_report.name,legal_report.description)
+        return self._get_report_complete_name(data, report_name)
+
+    def generate_xlsx_report(self, workbook, data, lines):
+        
+        def get_line(data_line, partner):
+            for nline in data_line:
+                if  nline['partner_id'] == partner:
+                    return nline
+            return False
+
+        comp = self.env.user.company_id.name
+        company_id = data['form']['company_id']
+        date_to = data['form']['date_to']
+        header = True
+
+        partner_column_id = data['form']['partner_column_id'][0]
+        columns_ids = self.env['legal.reports.partner'].browse(partner_column_id).columns_ids
+
+        legal_reports_account_id = data['form']['legal_reports_account_id'][0]
+        legal_report = self.env['legal.reports.account'].browse(legal_reports_account_id)
+
+        report_name = "%s - %s" % (legal_report.name,legal_report.description)
+        date_range = "%s - %s" % (data['form']['date_from'], data['form']['date_to'])
+
+        sheet = workbook.add_worksheet('Informe por Terceros')
+
+        #####sheet.Columns.AutoFit()
+
+        format0 = workbook.add_format({'font_size': 20, 'align': 'center', 'bold': True})
+        format1 = workbook.add_format({'font_size': 14, 'align': 'vcenter', 'bold': True})
+        format11 = workbook.add_format({'font_size': 12, 'align': 'center', 'bold': True})
+        format21 = workbook.add_format({'font_size': 10, 'align': 'center', 'bold': True})
+        format3 = workbook.add_format({'bottom': True, 'top': True, 'font_size': 12})
+        format4 = workbook.add_format({'font_size': 12, 'align': 'left', 'bold': True})
+        font_size_8 = workbook.add_format({'font_size': 8, 'align': 'center'})
+        font_size_8_l = workbook.add_format({'font_size': 8, 'align': 'left'})
+        font_size_8_r = workbook.add_format({'font_size': 8, 'align': 'right'})
+        red_mark = workbook.add_format({'font_size': 8, 'bg_color': 'red'})
+        justify = workbook.add_format({'font_size': 12})
+        format3.set_align('center')
+        justify.set_align('justify')
+        format1.set_align('center')
+        red_mark.set_align('center')
+        sheet.merge_range(1, 7, 2, 11, 'Informe por Terceros', format0)
+        sheet.merge_range(3, 7, 3, 11, comp, format11)
+        sheet.merge_range(4, 7, 4, 11, date_range, format21)
+        sheet.merge_range(5, 3, 5, 21, report_name, format21)
+        #print('data', data)
+
+        rows = 7
+        partner_cols = 1
+        partner_ids = self.get_rows(data)
+        legal_reports_account_ids = self.env['legal.reports.account'].browse(legal_reports_account_id)
+        
+        data_columns = self.get_columns(data, partner_ids, legal_reports_account_ids)
+        partner_ids = []
+        h_cols = len(columns_ids.ids) + 1
+        # Encabezamiento
+        cols = 1
+        for columns in columns_ids:
+            sheet.write(rows, cols, columns.name)
+            cols += 1
+
+        for line in data_columns:
+            if line['balance']:
+                sheet.write(rows, cols, 'Saldo Inicial', font_size_8)
+                h_cols += 1
+            sheet.merge_range(rows-1, line['balance'] and h_cols-1 or h_cols, rows-1, h_cols+1, line['description'], font_size_8)
+            sheet.write(rows, h_cols, 'debe', font_size_8)
+            sheet.write(rows, h_cols+1, 'haber', font_size_8)
+            h_cols += 2
+            # Collect partner_id
+            for partner in line['data']:
+                if partner['partner_id'] not in partner_ids:
+                    partner_ids.append(partner['partner_id'])
+            for partner in line['idata']:
+                if partner['partner_id'] not in partner_ids:
+                    partner_ids.append(partner['partner_id'])
+        cols = 1
+        rows = 8
+        #print(partner_ids)
+        #data
+        for partner in partner_ids:
+            #print('Type ', type(partner), ' Value ', partner)
+            partner_id = self.env['res.partner'].browse(partner)
+            if partner_id:
+                for columns in columns_ids:
+                    partner_value = columns.getfield(partner_id) 
+                    sheet.write(rows, cols, partner_value)
+                    cols += 1
+            for line in data_columns:
+                h_cols = len(columns_ids.ids) + 1
+                
+                if line['balance']:
+                    pline = list(filter(lambda pline: pline['partner_id'] == partner, line['1data']))
+                    #pline = get_line(line['1data'], partner)
+                    if pline:
+                        sheet.write(rows, cols, pline[0]['balance'])
+                    cols += 1
+                pline = list(filter(lambda pline: pline['partner_id'] == partner, line['data']))
+                #pline = get_line(line['data'], partner)
+                if pline:
+                    sheet.write(rows, cols, pline[0]['debit'])
+                    sheet.write(rows, cols+1, pline[0]['credit'])
+                cols += 2     
+            rows += 1       
+            cols = 1     
+
+        return
+
+        for row in partner_ids:
+            if not data_columns.get('%s' % (row), False):
+                continue
+
+            cols = 1
+            partner_id = self.env['res.partner'].browse(row)
+            for columns in columns_ids:
+                if rows == 7:
+                    sheet.write(rows, cols, columns.name)
+
+                partner_value = columns.getfield(partner_id) 
+
+                sheet.write(rows+1, cols, partner_value)
+                cols += 1
+
+            #cols = partner_cols
+            # Logica para todos los campos del tercero
+            if header:
+                header = False
+                # Header
+                h_cols = cols
+                for col in data_columns['headers']:
+                    if col['balance']:
+                        sheet.write(rows, h_cols, 'Saldo Inicial', font_size_8)
+                        h_cols += 1
+                    sheet.merge_range(rows-1, col['balance'] and h_cols-1 or h_cols, rows-1, h_cols+1, col['name'], font_size_8)
+                    sheet.write(rows, h_cols, 'debe', font_size_8)
+                    sheet.write(rows, h_cols+1, 'haber', font_size_8)
+                    h_cols += 2
+
+            
+            for vcol in data_columns['%s' % (row)]:
+                    #rows += 1
+                # Data
+                #aml_balance, aml_debit, aml_credit = self.get_lines(row, col, data)
+                if vcol != 'balance':
+                    sheet.write(rows+1, cols, vcol or 0.0, font_size_8_r)
+                    cols += 1
+            rows += 1

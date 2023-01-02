@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <!-- Electronic invoice menu -->
+        <menuitem id="menu_l10n_co_edi_jorels_root"
+                  name="Facturación electrónica"
+                  parent="account.menu_finance_configuration"
+                  groups="facturacion_electronica.l10n_co_edi_jorels_group_manager"
+        />
+
+    <!--  Resolutions action-->
+        <record model="ir.actions.act_window" id="action_l10n_co_edi_jorels_config_resolutions">
+            <field name="name">Resoluciones</field>
+            <field name="res_model">dian.resolution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    ¡Cree su primera resolución!
+                </p>
+            </field>
+        </record>
+
+    <!-- Resolutions menu -->
+        <menuitem id="menu_l10n_co_edi_jorels_config_resolutions"
+                  name="Resoluciones"
+                  action="action_l10n_co_edi_jorels_config_resolutions"
+                  parent="menu_l10n_co_edi_jorels_root"
+                  groups="facturacion_electronica.l10n_co_edi_jorels_group_manager"/>
+
+    <!-- Form -->
+    <record id="view_form_resolution" model="ir.ui.view">
+        <field name="name">Resolution Form</field>
+        <field name="model">dian.resolution</field>
+        <field name="arch" type="xml">
+            <form string="resolution">
+                <sheet>
+                    <div class="oe_title">
+                        <div class="o_row">
+                            <field name="document_type"/>
+                        </div>
+                    </div>
+                    <group name="group_top">
+                        <group name="group_left">
+                            <!--<field name="resolution_api_sync" attrs="{'readonly': [('id','!=',False)]}"
+                                   groups="base.group_no_one"/>-->
+                            <field name="resolution_prefix"/>
+                            <field name="resolution_resolution"/>
+                            <field name="resolution_resolution_date"/>
+                            <field name="resolution_technical_key"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="resolution_from"/>
+                            <field name="resolution_to"/>
+                            <field name="resolution_date_from"/>
+                            <field name="resolution_date_to"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree -->
+    <record id="view_tree_resolution" model="ir.ui.view">
+        <field name="name">Resolution List</field>
+        <field name="model">dian.resolution</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="document_type"/>
+                <field name="name"/>
+                <field name="resolution_prefix"/>
+                <field name="resolution_resolution"/>
+                <field name="resolution_resolution_date"/>
+                <field name="resolution_from"/>
+                <field name="resolution_to"/>
+                <field name="resolution_date_from"/>
+                <field name="resolution_date_to"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+
+
+</odoo>
+

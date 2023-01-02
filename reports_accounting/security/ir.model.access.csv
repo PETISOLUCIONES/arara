@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_libro_diario_report,libro diario,model_libro_diario_report,base.group_user,1,1,1,1
+access_libro_mayor_report,libro mayor,model_libro_mayor_report,base.group_user,1,1,1,1
+access_account_balance_report_filters,account balance report filters,model_account_balance_report_filters,base.group_user,1,1,1,1

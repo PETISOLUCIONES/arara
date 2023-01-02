@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+       
+        <record id="res_partner_ica_activity" model="ir.ui.view">
+            <field name="name">res.partner.ica</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='accounting']//group" position="after">
+                    <group string="Actividad y Ciudad ICA" name="activity_city_ica" >
+                        <field name="is_ica"/>
+                    </group>
+                    <!-- <notebook attrs="{'invisible':[('is_ica','=',False)]}">
+                        <page name="activity_city_ica" string='Ciudad y Actividad ICA'>
+                            <field name="activity_city_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="city_id"/>
+                                    <field name="activity_ids" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook> -->
+                    
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

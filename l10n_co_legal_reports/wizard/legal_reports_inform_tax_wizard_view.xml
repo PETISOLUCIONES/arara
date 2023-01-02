@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Impuestos y Retenciones -->
+
+    <record id="legal_reports_inform_tax_wizard" model="ir.ui.view">
+        <field name="name">Impuestos y Retenciones</field>
+        <field name="model">legal.reports.inform.tax.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="main_info">
+                    <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                </group>
+                <group name="Filtros">
+                    <group name="date_range">
+                        <field name="date_range_id"/>
+                    </group>
+                    <group name="date_date">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="export_xlsx" string="Exporar XLSX"
+                            type="object" default_focus="1" class="oe_highlight"
+                            context="{'xls_export':1}" icon="fa-download"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--<act_window id="action_legal_report_inform_tax_wizard"
+                name="Impuestos y Retenciones"
+                res_model="legal.reports.inform.tax.wizard"
+                view_type="form"
+                view_mode="form"
+                view_id="legal_reports_inform_tax_wizard"
+                target="new" />-->
+
+    <record id="action_legal_report_inform_tax_wizard" model="ir.actions.act_window">
+        <field name="name">Impuestos y Retenciones</field>
+        <field name="res_model">legal.reports.inform.tax.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="search_view_id" ref="legal_reports_inform_tax_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_legal_report_inform_tax"
+          name="Impuestos y Retenciones"
+          action="action_legal_report_inform_tax_wizard"
+          parent="menu_legal_reports_root"
+          groups="account.group_account_manager,account.group_account_user"/>
+
+
+    <!--<report
+        id="inform_tax_xlsx"
+        model="legal.reports.inform.tax.wizard"
+        string="Impuestos y Retenciones"
+        report_type="xlsx"
+        name="l10n_co_legal_reports.inform_tax_xls.xlsx"
+        file="l10n_co_legal_reports.inform_tax_xls.xlsx"
+        menu="False"
+        attachment_use="False"/>-->
+
+    <record id="inform_tax_xlsx" model="ir.actions.report">
+        <field name="name">Impuestos y Retenciones</field>
+        <field name="model">legal.reports.partner.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">l10n_co_legal_reports.inform_tax_xls.xlsx</field>
+        <field name="report_file">l10n_co_legal_reports.inform_tax_xls.xlsx</field>
+        <field name="binding_model_id" ref="model_legal_reports_partner_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

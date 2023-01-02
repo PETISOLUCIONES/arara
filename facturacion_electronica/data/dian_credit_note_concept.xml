@@ -1,0 +1,34 @@
+<odoo>
+    <data>
+         <record id="credit_note_concept_1" model="dian.creditnoteconcept">
+            <field name="code">1</field>
+            <field name="name">Devolución de parte de los bienes; no aceptación de partes del servicio</field>
+        </record>
+
+        <record id="credit_note_concept_2" model="dian.creditnoteconcept">
+            <field name="code">2</field>
+            <field name="name">Anulación de factura electrónica </field>
+        </record>
+
+        <record id="credit_note_concept_3" model="dian.creditnoteconcept">
+            <field name="code">3</field>
+            <field name="name">Rebaja total aplicada</field>
+        </record>
+
+        <record id="credit_note_concept_4" model="dian.creditnoteconcept">
+            <field name="code">4</field>
+            <field name="name">Descuento total aplicado</field>
+        </record>
+
+        <record id="credit_note_concept_5" model="dian.creditnoteconcept">
+            <field name="code">5</field>
+            <field name="name">Rescisión: nulidad por falta de requisitos</field>
+        </record>
+
+        <record id="credit_note_concept_6" model="dian.creditnoteconcept">
+            <field name="code">6</field>
+            <field name="name">Otros</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,90 @@
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError, Warning
+
+
+class ReportTaxCertification(models.AbstractModel):
+    _name = 'report.l10n_co_legal_reports.teplate_tax_certification'
+    _description = "Colombian Tax Certification Report"
+
+    @api.model
+    def get_report_values(self, docids, data=None):
+        docs = []
+        partner_doc = {}
+
+        tax_ids = data.get('tax_ids', False)
+        partner_ids = data.get('partner_ids', False)
+        date_from = data['wizard_values'].get('date_from', False)
+        date_to = data['wizard_values'].get('date_to', False)
+
+        common_domain = [
+            ('partner_id', '!=', False),
+            ('tax_line_id','!=', False),
+            ('date', '>=', date_from),
+            ('date', '<=', date_to),
+            ('tax_line_id.id', 'in', tax_ids)
+        ]
+
+        lines_per_partner = {}
+        for partner_id in partner_ids:
+            partner_doc = {
+                'partner_id': self.env['res.partner'].browse(partner_id),
+                'lines': [],
+            }
+            domain = common_domain + [('partner_id.id', '=', partner_id)]
+            move_line_ids = self.env['account.move.line'].search(domain, order='partner_id, id')
+
+            lines = []
+            for move_line_id in move_line_ids:
+                amount = move_line_id.credit - move_line_id.debit
+                base = move_line_id.tax_base_amount
+
+                if move_line_id.debit:
+                    base *= -1
+                print("Process...", move_line_id.tax_line_id.name)
+                nline = {}
+                for l in lines:
+                    if l['tax_id'] == move_line_id.tax_line_id.id:
+                        nline=l
+                        break
+
+                if nline:
+                    nline['base'] += base
+                    nline['amount'] += amount
+                else:
+                    lines.append({
+                        'tax_id': move_line_id.tax_line_id.id,
+                        'tax_name': move_line_id.tax_line_id.name,
+                        'currency_id': move_line_id.currency_id.id,
+                        'base': base,
+                        'amount': amount,
+                    })
+
+            if lines:
+                partner_doc['lines'] = lines
+                docs.append(partner_doc)
+            else:
+                raise ValidationError(
+                    'No existen datos para "%s"' % (
+                        self.env['res.partner'].browse(partner_id).name
+                    )
+                )
+
+        print("Docs..", docs)
+
+        docs = [doc for doc in docs if doc['lines']]
+        if not docs:
+            raise ValidationError(_('No se encontraron datos para procesar.'))
+
+        return {
+            'doc_ids': data['ids'],
+            'doc_model': data['model'],
+            'docs': docs,
+            'date_from': date_from,
+            'date_to': date_to,
+            'lines': lines_per_partner,
+            'data': data['wizard_values'],
+        }
+
+
+        #'doc_model': objectname,

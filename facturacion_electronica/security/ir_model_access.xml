@@ -1,0 +1,118 @@
+<odoo>
+    <data>
+        <record id="model_access_dian_operationtype" model="ir.model.access">
+            <field name="name">model.access.dian.operationtype</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_operationtype"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_companytype" model="ir.model.access">
+            <field name="name">model.access.dian.companytype</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_companytype"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_documenttype" model="ir.model.access">
+            <field name="name">model.access.dian.documenttype</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_documenttype"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_fiscalresponsibility" model="ir.model.access">
+            <field name="name">model.access.dian.fiscalresponsibility</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_fiscalresponsibility"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+
+        <record id="model_access_dian_typetax" model="ir.model.access">
+            <field name="name">model.access.dian.typetax</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_typetax"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_fiscalregimen" model="ir.model.access">
+            <field name="name">model.access.dian.fiscalregimen</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_fiscalregimen"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_paymentmethod" model="ir.model.access">
+            <field name="name">model.access.dian.paymentmethod</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_paymentmethod"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_creditnoteconcept" model="ir.model.access">
+            <field name="name">model.access.dian.creditnoteconcept</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_creditnoteconcept"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+         <record id="model_access_dian_debitnoteconcept" model="ir.model.access">
+            <field name="name">model.access.dian.debitnoteconcept</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_debitnoteconcept"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+         <record id="model_access_dian_paymentmean" model="ir.model.access">
+            <field name="name">model.access.dian.paymentmean</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_paymentmean"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_resolution" model="ir.model.access">
+            <field name="name">model.access.dian.resolution</field>
+            <field name="model_id" ref="facturacion_electronica.model_dian_resolution"/>
+            <field name="group_id" ref="base.group_system" />
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+
+
+
+    </data>
+</odoo>

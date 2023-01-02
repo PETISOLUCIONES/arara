@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record id="operation_type_01" model="dian.operationtype">
+            <field name="code">01</field>
+            <field name="name">Combustibles</field>
+        </record>
+
+        <record id="operation_type_02" model="dian.operationtype">
+            <field name="code">02</field>
+            <field name="name">Emisor es Autorretenedor</field>
+        </record>
+
+        <record id="operation_type_03" model="dian.operationtype">
+            <field name="code">03</field>
+            <field name="name">Excluidos y Exentos</field>
+        </record>
+
+        <record id="operation_type_04" model="dian.operationtype">
+            <field name="code">04</field>
+            <field name="name">Exportación</field>
+        </record>
+
+        <record id="operation_type_05" model="dian.operationtype">
+            <field name="code">05</field>
+            <field name="name">Genérica</field>
+        </record>
+
+        <record id="operation_type_06" model="dian.operationtype">
+            <field name="code">06</field>
+            <field name="name">Genérica con pago anticipado</field>
+        </record>
+
+        <record id="operation_type_07" model="dian.operationtype">
+            <field name="code">07</field>
+            <field name="name">Genérica con periodo de facturacion</field>
+        </record>
+
+        <record id="operation_type_08" model="dian.operationtype">
+            <field name="code">08</field>
+            <field name="name">Consorcio</field>
+        </record>
+
+        <record id="operation_type_09" model="dian.operationtype">
+            <field name="code">09</field>
+            <field name="name">Servicios AIU</field>
+        </record>
+
+        <record id="operation_type_10" model="dian.operationtype">
+            <field name="code">10</field>
+            <field name="name">Estándar *</field>
+        </record>
+
+        <record id="operation_type_11" model="dian.operationtype">
+            <field name="code">11</field>
+            <field name="name">Mandatos bienes</field>
+        </record>
+
+        <record id="operation_type_12" model="dian.operationtype">
+            <field name="code">12</field>
+            <field name="name">Mandatos Servicios</field>
+        </record>
+
+    </data>
+</odoo>

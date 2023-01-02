@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_partner_bank_in_payment_partner_bank_in_payment,partner_bank_in_payment.partner_bank_in_payment,model_partner_bank_in_payment_partner_bank_in_payment,base.group_user,1,1,1,1
