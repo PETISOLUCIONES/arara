@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Form -->
+    <record id="view_inherit_form_account_journal" model="ir.ui.view">
+        <field name="name">Agregar secuencia en el diario</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sequence']/group" position="after">
+                <group name="acuse" string="Secuencia acuse" attrs="{'invisible': [('type','not in', ['purchase', 'sale'])]}">
+                    <group>
+                        <field name="acuse_sequence_number_next"/>
+                        <field name="acuse_sequence_id"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

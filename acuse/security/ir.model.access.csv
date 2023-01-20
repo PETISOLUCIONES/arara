@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_acuse_wizard,access.acuse.wizard,model_acuse_import_wizard,,1,1,1,1
+access_account_acuse,access.account.acuse,model_account_acuse,,1,1,1,1

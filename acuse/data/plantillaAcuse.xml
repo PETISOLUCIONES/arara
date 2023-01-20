@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EDocument>
+  <AcsHead>
+    <Company></Company>
+    <AcsType></AcsType>
+    <AcsNum></AcsNum> 
+    <InvoiceRef></InvoiceRef>
+    <RejectType></RejectType>
+    <RejectName></RejectName>
+    <InvoiceTypeRef></InvoiceTypeRef>
+    <InvoiceDateRef></InvoiceDateRef>
+    <InvoiceCufeRef></InvoiceCufeRef>       
+    <TecnicalKey></TecnicalKey>
+    <IdSoftware></IdSoftware>
+    <TestSet></TestSet>
+    <PinSoftware></PinSoftware> 
+    <Note></Note> 
+  </AcsHead> 
+  <Company>
+    <company></company>    
+    <IdentificationType></IdentificationType>
+    <Name></Name>    
+    <CompanyType_c></CompanyType_c>   
+  </Company>
+  <Supplier>
+    <Company></Company>
+    <CustID></CustID>
+    <CustNum></CustNum>    
+    <Name></Name>
+    <CompanyType_c></CompanyType_c> 
+    <EMailAddress></EMailAddress>    
+  </Supplier>
+  <Person>
+    <IdentificationType></IdentificationType>
+    <PersonNum></PersonNum>
+    <Names></Names>
+    <SurNames></SurNames>
+    <JobTitle></JobTitle>
+    <Department></Department>
+  </Person>  
+</EDocument>

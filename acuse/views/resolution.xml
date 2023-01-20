@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!-- Inherit Form -->
+    <record id="view_inherit_form_resolution" model="ir.ui.view">
+        <field name="name">Resolution Form Inherit</field>
+        <field name="model">dian.resolution</field>
+        <field name="inherit_id" ref="facturacion_electronica.view_form_resolution"/>
+        <field name="arch" type="xml">
+            <field name="resolution_resolution" position="attributes">
+                <attribute name="attrs">{'invisible': [('document_type','=','factura_compra')]}</attribute>
+            </field>
+            <field name="resolution_resolution_date" position="attributes">
+                <attribute name="attrs">{'invisible': [('document_type','=','factura_compra')]}</attribute>
+            </field>
+            <field name="resolution_technical_key" position="attributes">
+                <attribute name="attrs">{'invisible': [('document_type','=','factura_compra')]}</attribute>
+            </field>
+            <field name="resolution_date_from" position="attributes">
+                <attribute name="attrs">{'invisible': [('document_type','=','factura_compra')]}</attribute>
+            </field>
+            <field name="resolution_date_to" position="attributes">
+                <attribute name="attrs">{'invisible': [('document_type','=','factura_compra')]}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
+

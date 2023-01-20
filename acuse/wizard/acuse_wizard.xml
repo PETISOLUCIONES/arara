@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="acuse_wizard_view_form" model="ir.ui.view">
+           <field name="name">acuse.wizard.view.form</field>
+           <field name="model">acuse.import.wizard</field>
+           <field name="arch" type="xml">
+               <form string="acuse_wizard_form">
+                       <group>
+                           <span class="oe_inline">
+                                <field name='file_name' class="oe_inline" invisible='1'/>
+                                <field name='file_import' style="margin-left:10px" class="oe_inline"
+                                       filename='file_name'
+                                       />
+                            </span>
+
+                       </group>
+                   <footer>
+                        <button name="enviar_archivo" string="Actualizar estado" type="object" class="btn-primary" data-hotkey="q"/>
+                    </footer>
+               </form>
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

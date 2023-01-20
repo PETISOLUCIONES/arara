@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+    <record id="company_form_view_ruta_xml" model="ir.ui.view">
+    <field name="name">res.company.common.form.ruta.xml</field>
+     <field name="model">res.company</field>
+     <field name="inherit_id" ref="base.view_company_form"/>
+     <field name="arch" type="xml">
+         <field name="ruta_plantilla" position="after">
+             <field name="ruta_plantilla_acuse" groups="base.group_no_one" />
+         </field>
+     </field>
+   </record>
+  </data>
+</odoo>
