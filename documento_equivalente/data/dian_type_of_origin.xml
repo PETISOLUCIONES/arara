@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="type_of_origin_01" model="dian.typeoforigin">
+            <field name="name">Residente</field>
+            <field name="code">10</field>
+        </record>
+
+        <record id="type_of_origin_02" model="dian.typeoforigin">
+            <field name="name">No Residente</field>
+            <field name="code">11</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="form_gen_trans_1" model="dian.formgentrans">
+            <field name="name">Por operación</field>
+            <field name="code">1</field>
+        </record>
+
+        <record id="form_gen_trans_2" model="dian.formgentrans">
+            <field name="name">Acumulado semanal</field>
+            <field name="code">2</field>
+        </record>
+
+    </data>
+</odoo>

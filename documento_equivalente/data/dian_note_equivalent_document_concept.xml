@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+         <record id="note_document_equivalent_concept_1" model="dian.note.document.equivalent.concept">
+            <field name="code">1</field>
+            <field name="name">Devolución parcial de los bienes y/o no aceptación parcial del servicio</field>
+        </record>
+
+        <record id="note_document_equivalent_concept_2" model="dian.note.document.equivalent.concept">
+            <field name="code">2</field>
+            <field name="name">Anulación del documento soporte en adquisiciones efectuadas a sujetos no obligados a expedir factura de venta o documento equivalente</field>
+        </record>
+
+        <record id="note_document_equivalent_concept_3" model="dian.note.document.equivalent.concept">
+            <field name="code">3</field>
+            <field name="name">Rebaja o descuento parcial o total</field>
+        </record>
+
+        <record id="note_document_equivalent_concept_4" model="dian.note.document.equivalent.concept">
+            <field name="code">4</field>
+            <field name="name">Ajuste de precio</field>
+        </record>
+
+        <record id="note_document_equivalent_concept_5" model="dian.note.document.equivalent.concept">
+            <field name="code">5</field>
+            <field name="name">Otros</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+      <!--<record id="view_tree__invoice_status_dian_docequivalente" model="ir.ui.view">
+          <field name="name">view.tree.invoice.status.dian</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree"/>
+            <field name="arch" type="xml">
+
+            </field>
+      </record>-->
+  <record id="view_account_move_form_docequivalente" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_post']" position="after">
+                    <field name="documento_equivalente" invisible="1"/>
+                    <button name="action_post1" type="object" string="Enviar Documento DIAN" attrs="{'invisible': ['|', '|', '|',  ('state', '!=', 'posted'), ('invoice_status_dian', '==', 'Exitoso'), ('move_type', 'not in', ['in_invoice', 'in_refund']), ('documento_equivalente', '==', False) ]}"/>
+                </xpath>
+                 <field name="invoice_status_dian" position="after">
+                    <field name="invoice_status_dian"
+                           readonly="True"
+                           widget="label_selection"
+                           options="{'classes': {['Fallida']: 'danger', ['Exitoso']: 'success'}}"
+                           attrs="{'invisible': ['|',('move_type', 'not in', ['out_invoice', 'out_refund', 'in_invoice', 'in_refund']), ('documento_equivalente', '==', False)]}" />
+                </field>
+                <field name="description_status_dian" position="after">
+                    <field name="description_status_dian"
+                           attrs="{'invisible':['|', '|',('invoice_status_dian', '!=', 'Fallida'), ('move_type', 'not in', ['out_invoice', 'out_refund', 'in_invoice', 'in_refund']), ('documento_equivalente', '==', False)]}"
+                           readonly="True"/>
+                </field>
+                <field name="ref" position="after">
+                    <field name="doc_period"
+                           attrs="{'required': [('move_type', 'in', ['in_invoice', 'in_refund']), ('documento_equivalente', '==', True)], 'invisible':[('documento_equivalente', '==', False)]}" />
+                </field>
+                <xpath expr="//button[@name='get_pdf_fact']" position="after">
+                    <button name="get_pdf_fact"
+                            type="object"
+                            string="Ver factura"
+                            attrs="{'invisible':['|', '|', ('invoice_status_dian','!=','Exitoso'), ('move_type', 'not in', ['out_invoice', 'out_refund', 'in_invoice', 'in_refund']), ('documento_equivalente', '==', False )]}"/>
+                </xpath>
+                <field name="description_code_debit" position="after">
+                    <field name="note_document_equivalent_concept" attrs="{'invisible': ['|',('documento_equivalente', '==', False), ('move_type', '!=', 'in_refund')]}"/>
+                </field>
+                <field name="url_xml" position="after">
+                    <field name="url_xml" widget="url" readonly="True" attrs="{'invisible':['|', '|',('invoice_status_dian', '!=', 'Exitoso'), ('move_type', 'not in', ['out_invoice', 'out_refund',  'in_invoice', 'in_refund']), ('documento_equivalente', '==', False )]}"/>
+                </field>
+                <field name="payment_method_id" position="replace">
+                    <field name="payment_method_id" attrs="{'readonly':[('state','not in',['draft'])], 'invisible':['|',('move_type', 'not in', ['out_invoice', 'out_refund']), ('move_type', 'in', ['in_invoice', 'in_refund']), ('documento_equivalente','=',False)]}" />
+                </field>
+                <field name="payment_mean_id" position="replace">
+                    <field name="payment_mean_id" attrs="{'readonly':[('state','not in',['draft'])], 'invisible':['|',('move_type', 'not in', ['out_invoice', 'out_refund']), ('move_type', 'in', ['in_invoice', 'in_refund']), ('documento_equivalente','=',False)]}" />
+                </field>
+            </field>
+        </record>
+
+
+  </data>
+</odoo>

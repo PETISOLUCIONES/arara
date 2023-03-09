@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="model_access_dian_typeoforigin" model="ir.model.access">
+            <field name="name">model.access.dian.operationtype</field>
+            <field name="model_id" ref="documento_equivalente.model_dian_typeoforigin"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_formgentrans" model="ir.model.access">
+            <field name="name">model.access.dian.formgentrans</field>
+            <field name="model_id" ref="documento_equivalente.model_dian_formgentrans"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+        <record id="model_access_dian_note_document_equivalent_concept" model="ir.model.access">
+            <field name="name">model.access.dian.note.document.equivalent.concept</field>
+            <field name="model_id" ref="documento_equivalente.model_dian_note_document_equivalent_concept"/>
+            <field name="group_id" ref="account.group_account_invoice" />
+            <field name="perm_create" eval="0"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+            <field name="perm_read" eval="1"/>
+        </record>
+
+
+    </data>
+</odoo>
